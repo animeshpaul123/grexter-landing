@@ -1,0 +1,90 @@
+.floating-btn-container {
+  position: fixed;
+  top: 80%;
+  transform: translateY(-100%);
+  z-index: 4;
+}
+
+.floating-btn-sub-container{
+  position: relative;
+}
+
+.floating-main-component{
+  z-index: 2;
+  height: 57px;
+  width: 61px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: #f5c513;
+  position: relative;
+  transition: 1s;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 0px 4px, rgba(0, 0, 0, 0.28) 0px 4px 8px;
+  cursor: pointer;
+}
+
+.floating-bell-icon{
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.floating-sub-component {
+  cursor: pointer;
+  position: relative;
+  color: white;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  border-radius: 100%;
+  margin-left: 6px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 0px 4px, rgba(0, 0, 0, 0.28) 0px 4px 8px;
+}
+
+.floating-sub-component-conatiner{
+  position: absolute;
+  width: max-content;
+  top: 50%;
+  left: -100%;
+  transform: translateY(-45%);
+  transition: 700ms;
+}
+
+.floating-button-open{
+  left: 100%;
+}
+
+.floating-whatsapp{
+  background-color: #5bce6f;
+}
+
+.floating-phone{
+  background-color: #1fb0f4;
+}
+
+.floating-btn-container > ul > a {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.floating-sub-icon{
+  font-size: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rotate-floating-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotate(0deg);
+  transition: 500ms;
+}
+.rotate-floating-btn.spin {
+  transform:rotate(360deg);
+}

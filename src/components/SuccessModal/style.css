@@ -1,0 +1,11 @@
+.suc-modal-header {
+  background-color: #f5c513 !important;
+  text-align: center;
+  padding: 10% 10%;
+}
+.suc-modal-body {
+  padding: 10% 10%;
+  text-align: center;
+  font-family: "Abel-Regular";
+  color: #292c74;
+}

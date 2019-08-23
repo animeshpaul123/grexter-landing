@@ -1,0 +1,74 @@
+.arrow_box {
+  height: 160px;
+  width: 160px;
+  background: url("/static/images/marker.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -160px;
+}
+
+.map-building-name {
+  font-family: "Abel-Regular";
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f5c513;
+  background: #062f6e;
+  padding: 5px;
+  width: 152px;
+  margin-left: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-area-name {
+  font-family: "Montserrat-Light";
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #414042;
+  background: #f5c513;
+  padding: 5px;
+  width: 152px;
+  margin-left: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.map-sub-area-name {
+  font-family: "Montserrat-Light";
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #414042;
+  padding: 5px;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.google-link {
+  color: black;
+  padding: 5px;
+}
+
+.direction-logo {
+  height: 16px;
+  width: 12px;
+  margin-left: 5px;
+}

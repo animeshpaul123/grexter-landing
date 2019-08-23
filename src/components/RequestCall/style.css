@@ -1,0 +1,42 @@
+.request-input-btn {
+  background-color: #f5c513;
+  width: 100%;
+  color: white;
+  margin-top: 32px;
+  border: none;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.request-input-btn:hover {
+  opacity: 0.9;
+}
+
+.req-inp-1 {
+  margin-top: 32px;
+}
+
+.our-promise-message {
+  text-align: center;
+  font-family: "Montserrat-Regular";
+  color: #292c74;
+  font-size: 14px;
+}
+
+.our-promise {
+  font-size: 1.1em;
+}
+
+@media all and (max-width: 514px) {
+  .our-promise-message {
+    font-size: 10px;
+  }
+}
+
+@media all and (max-width: 340px) {
+  .our-promise-message {
+    font-size: 9px;
+  }
+}

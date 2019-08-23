@@ -1,0 +1,57 @@
+.menu-logo {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#menu .modal-content {
+  background: transparent;
+  text-align: center;
+  border: none;
+}
+
+.menu-list {
+  color: white;
+  font-size: 35px;
+  font-family: "Abel-Regular";
+}
+.menu-modal-dialog {
+  top: 5%;
+}
+
+.menu-list-text {
+  padding: 20px;
+  cursor: pointer;
+  transition: all ease-out 0.3s;
+}
+.menu-list-text:hover {
+  color: rgb(245, 197, 19);
+  transition: all ease-in 0.3s;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.menu-close {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  font-size: 34px;
+  color: white;
+  opacity: 1;
+  font-weight: 100;
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-logo {
+    top: 29px !important;
+  }
+  .menu-icon-bars {
+    width: 40px;
+  }
+}

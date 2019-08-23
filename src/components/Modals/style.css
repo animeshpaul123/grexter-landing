@@ -1,0 +1,135 @@
+.grex-modal-header {
+  background-color: #fac917;
+  text-align: center !important;
+  justify-content: center !important;
+  display: inline;
+  font-family: "Abel-Regular";
+}
+.modal-button {
+  border-color: #f5c513;
+  color: #000000;
+  border-radius: 5px;
+  width: 20%;
+  font-size: 15px;
+  position: absolute;
+  background-color: white;
+  margin-top: -5%;
+  margin-left: -10%;
+}
+.modal-footer {
+  padding: 1rem;
+  border: none;
+}
+
+.helper-modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  z-index: 5;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+}
+
+.helper-modal-header {
+  margin-top: 128px;
+}
+
+.helper-modal-header-1 {
+  font-size: 46px;
+  color: white;
+  margin-left: 10%;
+  font-family: "Abel-Regular";
+}
+
+.helper-modal-header-2 {
+  font-size: 46px;
+  color: white;
+  margin-left: 10%;
+  top: 20%;
+  font-family: "Abel-Regular";
+  display: inline-block;
+}
+
+.reqModalBigBtn {
+  margin-top: 256px;
+  color: white;
+  display: inline-block;
+  background: #f5c513;
+  padding: 8px 16px;
+  font-size: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Montserrat-Light";
+}
+
+.arrow-img {
+  margin-top: 180px;
+  transform: rotate(-50deg);
+  width: 15em;
+}
+
+.arrow-btn {
+  position: absolute;
+  top: 140px;
+  transform: translateX(80%);
+
+  /* float: right; */
+}
+
+.close-fullreq-modal {
+  position: absolute;
+  right: 0px;
+  margin: 5% 10%;
+  color: #f5c513;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1035px) {
+  .grex-modal-dialog {
+    top: 50%;
+    transform: translateY(-50%) !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .grex-modal-dialog {
+    margin: 32px !important;
+  }
+  .arrow-btn {
+    transform: translateX(50%);
+  }
+}
+
+@media all and (max-width: 480px) {
+  .arrow-btn {
+    transform: none;
+    left: 48px;
+    top: 170px;
+  }
+  .reqModalBigBtn {
+    font-size: 18px;
+  }
+  .arrow-img {
+    width: 120px;
+  }
+  .helper-modal-header-2 {
+    font-size: 32px;
+  }
+  .helper-modal-header-1 {
+    font-size: 32px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .arrow-btn {
+    transform: none;
+    left: 48px;
+    top: 90px;
+  }
+  .reqModalBigBtn {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,156 @@
+.grex-fixed-header-gen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 85px;
+  background: black;
+  width: 100%;
+  opacity: 0.8;
+  z-index: 3;
+}
+
+.fx-header-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.fixed-class-logo-gen {
+  margin-top: 35px;
+  margin-bottom: 5px;
+  height: 60px;
+}
+.book-now-gen-req {
+  position: absolute;
+  right: 240px;
+  margin-top: 17px;
+}
+
+.book-now-gen {
+  margin-top: 17px;
+  position: absolute;
+  right: 500px;
+}
+
+.book-now-whatsapp {
+  margin-top: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #5bce6f;
+}
+
+.book-now-phone {
+  margin-top: 25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #17b0f4;
+}
+
+#whatsapptext {
+  position: relative;
+  left: 84px;
+  top: -27px;
+  font-family: "Montserrat-Regular";
+}
+
+#phonetext {
+  position: relative;
+  left: 90px;
+  top: -21px;
+  font-family: "Montserrat-Regular";
+}
+
+@media (max-width: 900px) {
+  .book-now-whatsapp {
+    display: none;
+  }
+  .book-now-phone {
+    display: none;
+  }
+}
+
+@media (max-width: 1150px) {
+  .book-now-gen {
+    display: none;
+  }
+}
+
+@media (max-width: 1300px) {
+  .header-dropdown {
+    padding: 50%;
+  }
+}
+
+.header-dropdown {
+  background-color: white;
+  color: black;
+  margin-top: 24px;
+  padding: 31px;
+  border-radius: 5px;
+  box-shadow: 0.8px 0.6px 8px 5px rgba(0, 0, 0, 0.3);
+  z-index: 5 !important;
+  position: relative;
+  animation-duration: 0.5s;
+  animation-delay: 0.2s;
+  cursor: pointer;
+}
+
+.dropdown-custom-menu {
+  margin-left: 13%;
+}
+.dropdown-custom-menu2 {
+  margin-left: -7%;
+}
+.fx-header-btns-mobile {
+  display: none;
+}
+
+.fx-header-whatsapp-icon {
+  margin-right: 32px;
+}
+
+.fx-btns-mobile-wrapper {
+  margin-right: 84px;
+}
+
+.fx-header-whatsapp-icon-dt {
+  margin-top: 9px;
+}
+
+.fx-header-phone-icon-dt {
+  margin-top: 13px;
+}
+
+@media all and (max-width: 768px) {
+  .fixed-class-logo-gen {
+    width: 120px;
+    height: auto;
+    margin-left: 16px;
+  }
+  .fx-header-btns-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .fx-header-btns {
+    display: none;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .fx-header-btns {
+    display: none;
+  }
+}
+
+@media all and (max-width: 350px) {
+  .fx-btns-mobile-wrapper {
+    margin-right: 70px;
+  }
+  .fx-header-whatsapp-icon {
+    margin-right: 24px;
+  }
+}

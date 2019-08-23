@@ -1,0 +1,54 @@
+.search-container {
+  display: flex;
+}
+
+.search-input {
+  background-color: #ffffff;
+  border: none;
+  font-family: "Montserrat-LightItalic";
+  font-size: 10pt;
+  color: rgba(65, 64, 66, 255);
+  text-align: left;
+  padding-left: 25px;
+  width: 100%;
+  height: 40px;
+  opacity: 0.5;
+  border-radius: 27.5px;
+  z-index: 1;
+}
+.search-input:focus {
+  outline: none;
+}
+.search-button {
+  font-family: "Montserrat-Regular";
+  font-size: 12pt;
+  color: rgba(0, 0, 0, 255);
+  text-align: center;
+  border: none;
+  margin-left: -70px;
+  width: 200px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 27.5px;
+  background-color: #f5c513;
+  z-index: 1;
+}
+.search-button:focus {
+  outline: none;
+}
+
+.pac-container {
+  font-family: "Abel-Regular";
+  opacity: 1;
+  margin-left: 15px;
+}
+.pac-item-query {
+  color: #f5c513;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 576px) {
+  .search-button {
+    width: 80px;
+  }
+}

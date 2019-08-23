@@ -1,0 +1,51 @@
+.hf-main-container {
+  text-align: center;
+  color: #74706d;
+  background-color: #1e1d22;
+  padding: 20px 18%;
+}
+
+.footer-toggle-btn {
+  transition: color 300ms;
+  padding: 8px 30px;
+  width: 250px;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: "Montserrat-Semi";
+  font-size: 14px;
+  display: inline-block;
+}
+
+.hf-container-hidden {
+  display: none;
+}
+
+.hf-container {
+  margin-top: 20px;
+  display: block;
+}
+
+.tab-cont {
+  display: block;
+  font-size: 10px;
+}
+
+.tab-cont-hidden {
+  display: none;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  color: #f5c513 !important;
+}
+
+.in-links-nav {
+  list-style: none !important;
+  text-align: center !important;
+  font-size: 10px !important;
+  color: #74706d !important;
+  margin: 8px 0px;
+}

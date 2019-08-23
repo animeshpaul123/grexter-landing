@@ -1,0 +1,12 @@
+.callgrex-container {
+  height: 100%;
+  background: #fdf9e8;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all ease 0.5s;
+  padding: 16px;
+}
+.callGrexterBtnContainer {
+  margin-bottom: 68px;
+}

@@ -1,0 +1,38 @@
+.grid {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 125px;
+  margin-bottom: 60px;
+}
+.terms {
+  padding-left: 25px;
+  margin-bottom: 31px;
+  color: #000;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 35px;
+  z-index: 1;
+  margin-top: 30px;
+  vertical-align: baseline;
+}
+h4 {
+  padding-left: 23px;
+  margin-top: 25px;
+}
+.toc-content {
+  padding-left: 28px;
+}
+ol {
+  line-height: 25px;
+  margin-top: 10px;
+  color: #656565;
+}
+li {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #656565;
+  margin-bottom: 10px;
+  margin-top: 17px;
+}
