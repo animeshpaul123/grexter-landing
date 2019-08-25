@@ -160,7 +160,7 @@ class RequirementModal extends Component {
               value={message}
               onChange={this.handleChange}
             />
-            {loader ? <div class="loader" /> : null}
+            {loader ? <div className="loader" /> : null}
             {err ? (
               <div className="error-text">
                 Please Fill in all the fields before proceeding

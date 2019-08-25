@@ -46,7 +46,7 @@ class CallGrexter extends Component {
       color: "black"
     };
     return (
-      <div class="callgrex-container animated fadeIn">
+      <div className="callgrex-container animated fadeIn">
         <div className="dot-logo">
           <img alt="dot" src="/static/images/home/dot.svg" className="dot" />
         </div>

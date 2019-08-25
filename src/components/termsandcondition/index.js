@@ -12,7 +12,7 @@ const TermsAndConditions = props => {
     <>
       <FixedHeader searchicon={false} />
       <div className="container grid">
-        <h1 class="terms">Terms & Conditions</h1>
+        <h1 className="terms">Terms & Conditions</h1>
         <h4>
           COVENANTS AND CONDITIONS TO BE OBSERVED AND PERFORMED BY THE LESSEE:
         </h4>

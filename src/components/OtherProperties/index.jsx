@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const OtherProperties = () => {
-  return <div>OtherProperties</div>;
+	return <div>OtherProperties</div>;
 };
 
 export default OtherProperties;

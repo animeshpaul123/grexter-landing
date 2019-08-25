@@ -81,7 +81,7 @@ class SearchComponent extends Component {
     const { style, classCustom } = this.props;
     const { lat, long } = location;
     return (
-      <div class="search-container">
+      <div className="search-container">
         <input
           type="text"
           ref={this.autocompleteInput}

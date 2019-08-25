@@ -1,3 +1,152 @@
-.App {
-  text-align: center;
+/* @font-face {
+	font-family: "abel-regular";
+	src: url("../assets/fonts/Abel-Regular.ttf") format("truetype"); */
+/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+/* } */
+/* @font-face {
+	font-family: "MONTSERRAT-BLACKITALIC_0";
+	src: url("../assets/fonts/MONTSERRAT-BLACKITALIC_0.TTF") format("truetype"); */
+/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+/* } */
+/* @font-face {
+	font-family: "MONTSERRAT-BLACK_0";
+	src: url("../assets/fonts/MONTSERRAT-BLACK_0.TTF") format("truetype"); */
+/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+/* } */
+/* @font-face {
+	font-family: "MONTSERRAT-BOLDITALIC_0";
+	src: url("../assets/fonts/MONTSERRAT-BOLDITALIC_0.TTF") format("truetype");
+}
+@font-face {
+	font-family: "MONTSERRAT-BOLDITALIC_0\ \(1\)";
+	src: url("../assets/fonts/MONTSERRAT-BOLDITALIC_0\ \(1\).TTF") format("truetype");
+}
+@font-face {
+	font-family: "MONTSERRAT-LIGHT";
+	src: url("../assets/fonts/MONTSERRAT-LIGHT.TTF") format("truetype");
+}
+@font-face {
+	font-family: "MONTSERRAT-REGULAR_0";
+	src: url("../assets/fonts/MONTSERRAT-REGULAR_0.OTF") format("truetype");
+} */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	width: 100vw;
+	z-index: 132;
+	/* height: 50px;
+  */
+}
+.headerContainer {
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+}
+.headerContainer .logo {
+	width: 200px;
+}
+footer {
+	background: #1e1d22;
+}
+footer a {
+	text-decoration: none;
+	color: #fff;
+}
+footer a:hover {
+	text-decoration: none;
+	color: #f5c513;
+}
+footer .logo-wrapper {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+footer .logo-wrapper .footer-content {
+	width: 80%;
+	margin: 40px 0;
+}
+@media (min-width: 768px) {
+	footer .logo-wrapper .footer-content {
+		width: 500px;
+	}
+}
+footer .logo-wrapper .footer-content .logo {
+	width: 40%;
+	margin: 0 auto 30px;
+}
+footer .logo-wrapper .footer-content .visit-us {
+	text-align: center;
+}
+footer .logo-wrapper .footer-content .visit-us a {
+	padding: 8px 30px;
+	width: 250px;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #fff;
+	border-radius: 25px;
+	cursor: pointer;
+	font-weight: 500;
+	letter-spacing: 2px;
+	font-size: 14px;
+	display: inline-block;
+}
+footer .logo-wrapper .footer-content .visit-us a:hover,
+footer .logo-wrapper .footer-content .visit-us a:active {
+	color: #f5c513;
+	border-color: #f5c513;
+}
+footer .logo-wrapper .footer-content .visit-us a:active {
+	position: relative;
+	top: 1px;
+}
+footer .info-wrapper {
+	padding-bottom: 20px;
+}
+footer .info-wrapper .contact {
+	font-family: MONTSERRAT-REGULAR_0;
+	text-align: center;
+	color: #fff;
+}
+footer .info-wrapper .contact i {
+	vertical-align: middle;
+	font-size: 1.6rem;
+}
+footer .info-wrapper .contact span {
+	margin-right: 15px;
+}
+@media (max-width: 767px) {
+	.room .col-md-6 {
+		padding: 0;
+	}
+	footer .info-wrapper .contact span {
+		display: block;
+		margin: 0 0 20px;
+	}
+	footer .info-wrapper .contact span i {
+		font-size: 0.99rem;
+	}
+}
+footer .info-wrapper .contact img {
+	width: 38px;
+}
+footer .info-wrapper .contact .social {
+	display: inline-block;
+	vertical-align: middle;
+}
+footer .info-wrapper .contact .social a {
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-block;
+}
+footer .info-wrapper .contact .social a:nth-of-type(2) {
+	margin: 0 20px;
 }

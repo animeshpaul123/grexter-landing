@@ -354,7 +354,7 @@ class ScheduleVisitModal extends Component {
               Please Fill in all the fields before proceeding
             </div>
           ) : null}
-          <div>{loader ? <div class="loader" /> : null}</div>
+          <div>{loader ? <div className="loader" /> : null}</div>
         </GrexModal>
         {toast ? (
           <SuccessModal

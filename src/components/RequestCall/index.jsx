@@ -155,7 +155,7 @@ class RequestCall extends Component {
               </div>
             </FormGroup>
           </form>
-          {loader ? <div class="loader" /> : null}
+          {loader ? <div className="loader" /> : null}
         </GrexModal>
       </div>
     );
