@@ -1,15 +1,20 @@
 .grex-round-button {
   font-family: "Montserrat-Light";
   font-weight: bold;
-  width: fit-content;
+  width: 193px;
+  height: 45px;
+  color: #292c74;
+  padding-top: 9px;
+  text-align: center;
   width: -moz-fit-content;
   border-radius: 27.5px;
-  border: 2px solid black;
+  border: 2px solid #f7d142;
   cursor: pointer;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 992px) {
   .grex-round-button {
     width: 100%;
+    font-size: 0.8rem;
   }
 }

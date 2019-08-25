@@ -22,6 +22,7 @@ class Building extends Component {
       buildingData: json
     });
   }
+
   render() {
     const {
       address,
@@ -30,12 +31,8 @@ class Building extends Component {
       id,
       location,
       description,
-      layouts
+      layouts = []
     } = this.state.buildingData;
-
-    // const { subLayouts } = layouts.subLayouts;
-
-    console.log(address, images, name, id, location, description, layouts);
 
     return (
       <Fragment>
