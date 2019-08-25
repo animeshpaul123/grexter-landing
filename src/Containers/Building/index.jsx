@@ -71,6 +71,31 @@ class Building extends Component {
 			</Fragment>
 		);
 	}
+	async componentDidMount() {
+		const res = await fetch(
+			`https://backend.grexter.in/buildings/33?include=location,amenities,landmarks,area,subarea`
+		);
+		const json = await res.json();
+		this.setState({
+			buildingData: json
+		});
+	}
+
+	render() {
+		const { address, images, name, id, location, description, layouts = [] } = this.state.buildingData;
+
+		return (
+			<Fragment>
+				<Cover name={name} description={description} />
+				<Rooms layouts={layouts} />
+				<Gallery images={images} />
+				<Inclusive />
+				<GoogleStaticMap address={address} location={location} />
+				<OtherProperties />
+				<Footer />
+			</Fragment>
+		);
+	}
 }
 
 export default Building;
