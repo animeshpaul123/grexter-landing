@@ -1,44 +1,41 @@
 html,
 body {
-<<<<<<< HEAD
 	margin: 0;
 	font-family: 'Montserrat', sans-serif !important;
 }
 * {
 	font-family: 'Montserrat', sans-serif !important;
-=======
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  height: 100%;
-  width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	height: 100%;
+	width: 100%;
 }
 
 @font-face {
-  font-family: "Abel-Regular";
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/abel/v9/MwQ5bhbm2POE2V9BPQ.woff2");
+	font-family: "Abel-Regular";
+	font-display: swap;
+	src: url("https://fonts.gstatic.com/s/abel/v9/MwQ5bhbm2POE2V9BPQ.woff2");
 }
 
 @font-face {
-  font-family: "Montserrat-LightItalic";
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/montserrat/v13/JTUPjIg1_i6t8kCHKm459WxZYgzz_PZw.woff2");
+	font-family: "Montserrat-LightItalic";
+	font-display: swap;
+	src: url("https://fonts.gstatic.com/s/montserrat/v13/JTUPjIg1_i6t8kCHKm459WxZYgzz_PZw.woff2");
 }
 @font-face {
-  font-family: "Montserrat-Regular";
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_bZF3gnD_g.woff2");
+	font-family: "Montserrat-Regular";
+	font-display: swap;
+	src: url("https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_bZF3gnD_g.woff2");
 }
 @font-face {
-  font-family: "Montserrat-Light";
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_cJD3gnD_g.woff2");
+	font-family: "Montserrat-Light";
+	font-display: swap;
+	src: url("https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_cJD3gnD_g.woff2");
 }
 
 @font-face {
-  font-family: "Montserrat-Semi";
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_dJE3gnD_g.woff2");
->>>>>>> 5fe884dd02dde3b6eff6e9ce868566514e24426b
+	font-family: "Montserrat-Semi";
+	font-display: swap;
+	src: url("https://fonts.gstatic.com/s/montserrat/v13/JTURjIg1_i6t8kCHKm45_dJE3gnD_g.woff2");
 }
