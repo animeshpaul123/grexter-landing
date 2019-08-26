@@ -8,8 +8,12 @@ import GoogleStaticMap from '../../Components/GoogleStaticMap';
 import OtherProperties from '../../Components/OtherProperties';
 import Footer from '../../Components/Footer';
 import Header from '../../Components/Header';
-import Form from '../../Components/Form';
+
 import coverImg from '../../static/images/chill.jpg';
+import LandingCover from './LandingCover';
+
+// css starts
+import './style.css';
 
 class Building extends Component {
 	state = {
@@ -60,7 +64,7 @@ class Building extends Component {
 			<Fragment>
 				<Header />
 				<Cover {...this.state.cover}>
-					<Form name={name} description={description} />
+					<LandingCover />
 				</Cover>
 				<Rooms layouts={layouts} />
 				<Gallery images={images} />
