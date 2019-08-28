@@ -18,13 +18,13 @@ const Cover = props => {
   }
 
   style = {
-    background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${
+    background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
       coverImageSrc.url ? coverImageSrc.url : defaultImage
     })`
   };
 
   return (
-    <div className="container-fluid main clearfix" style={style}>
+    <div className="container-fluid main clearfix o-0" style={style}>
       {props.children}
     </div>
   );

@@ -12,6 +12,14 @@ const LandingCover = props => {
           <div className="centerText d-md-flex h-100 pt-4 flex-column text-left">
             <h1>{name}</h1>
             <h4>{desc}</h4>
+            {name ? (
+              ""
+            ) : (
+              <span>
+                <h2 className="welcome"> Welcome to Grexter </h2>
+                <p className="subWelcome">Living Spaces for the young</p>
+              </span>
+            )}
           </div>
         </Col>
         <Col md="6">
