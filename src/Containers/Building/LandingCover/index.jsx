@@ -4,7 +4,7 @@ import { Row, Col } from "reactstrap";
 import "./style.css";
 
 const LandingCover = props => {
-  const { name, desc, bookVisitClicked } = props;
+  const { name, desc, bookVisitClicked, selectOptionsar } = props;
   return (
     <React.Fragment>
       <Row className="CoverRow">
@@ -16,7 +16,10 @@ const LandingCover = props => {
         </Col>
         <Col md="6">
           <div className="formCard">
-            <Form bookVisitClicked={bookVisitClicked} />
+            <Form
+              bookVisitClicked={bookVisitClicked}
+              selectOptionsar={selectOptionsar}
+            />
           </div>
         </Col>
       </Row>

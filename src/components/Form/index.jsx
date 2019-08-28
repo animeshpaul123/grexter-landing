@@ -13,7 +13,7 @@ class ScheduleVisit extends Component {
     // layout_id: 6,
     // message: "",
     name: "",
-    selectedInterestOption:'Hi',
+    selectedInterestOption: "Hi",
     // interestOptions : [],
     // status: "",
     toast: false,
@@ -90,7 +90,7 @@ class ScheduleVisit extends Component {
   render() {
     // prettier-ignore
     const { toast, loader, err, name, contact_number,  validate ,selectedInterestOption} = this.state;
-    const { bookVisitClicked } = this.props;
+    const { bookVisitClicked, selectOptionsar } = this.props;
     if (bookVisitClicked === true) {
       document.getElementById("name").focus();
     }
@@ -104,7 +104,6 @@ class ScheduleVisit extends Component {
             </label>
             <Input
               id="name"
-              autoFocus
               type="text"
               placeholder="Name"
               className="input-text"
@@ -145,11 +144,9 @@ class ScheduleVisit extends Component {
               placeholder="Phone Number"
               className="input-text"
               invalid={false}
-              name="contact_number"
               value={selectedInterestOption}
-              onChange={this.handelPhnumChange}
-              invalid={validate.phnumErr}
-            >{}
+            >
+              {}
             </Input>
             <FormFeedback invalid>
               Please enter a valid phone number

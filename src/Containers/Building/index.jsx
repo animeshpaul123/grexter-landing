@@ -27,31 +27,35 @@ class Building extends Component {
       facebook: "https://www.facebook.com/grexterhousing/",
       linkedin: "https://www.linkedin.com/company/grexter"
     },
-    bookVisitClicked: false
+    bookVisitClicked: false,
+    selectOptionsar: []
   };
 
-  async componentDidMount() {
+  async componentWillMount() {
     let params = window.location.search;
     // let params = queryString.parse(url);
     const id = params.split("=")[1];
     console.log(id);
-
+    let f = 35;
     const res = await fetch(
       `https://backend.grexter.in/buildings/${id}?include=location,amenities,landmarks,area,subarea`
     );
     const buildingData = await res.json();
 
-    // const response = await fetch(
-    //   `https://backend.grexter.in/buildings/${id}?include=location,amenities,landmarks,area,subarea`
-    // );
-    // const allBuildingsData = await response.json();
+    const response = await fetch(
+      `https://backend.grexter.in/nearby-buildings?include=location,landmarks,area,layouts,layout_prices,building_images&lon=&lat=`
+    );
+    const allBuildingsData = await response.json();
+    console.log(allBuildingsData);
 
-    // const aa= [];
+    const selectOptionsar = [];
 
-    // for (const key in allBuildingsData) {
-
-    //   }
-    // }
+    allBuildingsData.map(data => {
+      selectOptionsar.push({
+        name: data.name,
+        id: data.id
+      });
+    });
 
     const res1 = await fetch(
       `https://backend.grexter.in/nearby-buildings?include=location,landmarks,area,layouts,layout_prices,building_images&lon=${buildingData.location.longitude}&lat=${buildingData.location.latitude}`
@@ -59,7 +63,7 @@ class Building extends Component {
 
     let nearbyProperties = await res1.json();
     nearbyProperties = nearbyProperties.slice(1, 4);
-    this.setState({ buildingData, nearbyProperties });
+    this.setState({ buildingData, nearbyProperties, selectOptionsar });
   }
 
   bookVisitClickHandler = () => {
@@ -71,7 +75,7 @@ class Building extends Component {
     }, 800);
   };
   render() {
-    const { nearbyProperties, bookVisitClicked } = this.state;
+    const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
     const {
       address,
       images,
@@ -110,6 +114,7 @@ class Building extends Component {
             name={name}
             desc={description}
             bookVisitClicked={bookVisitClicked}
+            selectOptionsar={selectOptionsar}
           />
         </Cover>
         <Yellow2nut text="Rooms" />
