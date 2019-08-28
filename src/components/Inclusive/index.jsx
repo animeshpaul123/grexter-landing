@@ -49,7 +49,7 @@ const Inclusives = () => {
     <div className="icons-wrapper d-flex justify-content-around">
       {items.map(item => {
         return (
-          <div className="icon">
+          <div className="icon" key={item.name}>
             <img src={item.img} alt={item.img} className="img lazy" />
             <p className="text">{item.name}</p>
           </div>

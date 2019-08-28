@@ -25,6 +25,7 @@ const RoomsCard = props => {
           width="100%"
           src={src ? src : notAvailableImage}
           alt="Card image cap"
+          fallback={<p>Loading...</p>}
         />
         {notAvailable ? (
           <CardBody>
@@ -42,6 +43,12 @@ const RoomsCard = props => {
       </Card>
     </Col>
   );
+};
+
+RoomsCard.defaultProps = {
+  name: " ",
+  price: " ",
+  src: "https://d2lb8po6ulqbmf.cloudfront.net/newassets/comingsoon-carousel.jpg"
 };
 
 export default RoomsCard;
