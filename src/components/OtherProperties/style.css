@@ -1,0 +1,18 @@
+.slider-container {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+@media all and (max-width: 768px) {
+  .slider-container {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .slider-container {
+    width: 100%;
+  }
+}

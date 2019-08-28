@@ -7,12 +7,8 @@ const SuccessModal = props => {
   return (
     <div>
       <Modal className="modal-md" isOpen={isOpen} toggle={closeModal}>
-        <div className="suc-modal-header">
-          <div className="animation-ctn">
-            <div className="icon icon--order-success svg">
-              <img alt="success" src="/static/images/bsuccess.svg" />
-            </div>
-          </div>
+        <div className="animation-ctn">
+          <div className="icon icon--order-success svg"></div>
         </div>
         <div className="suc-modal-body">{children}</div>
       </Modal>

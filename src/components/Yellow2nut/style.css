@@ -1,0 +1,28 @@
+.yello2nut {
+  margin: 2rem 0 1.5rem 0;
+  text-align: center;
+}
+.yello2nut h1 {
+  font-family: Abel-Regular;
+  font-size: 38px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #292c74;
+  margin: 20px;
+}
+
+@media all and (max-width: 768px) {
+  .yello2nut h1 {
+    font-size: 32px;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .yello2nut h1 {
+    font-size: 28px;
+  }
+}

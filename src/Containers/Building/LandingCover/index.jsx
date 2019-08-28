@@ -1,27 +1,26 @@
-import React from 'react';
-import Form from '../../../Components/Form';
-import { Row, Col } from 'reactstrap';
+import React from "react";
+import Form from "../../../Components/Form";
+import { Row, Col } from "reactstrap";
+import "./style.css";
 
-const LandingCover = (props) => {
-	return (
-		<React.Fragment>
-			<Row>
-				<Col md="6">
-					<div className="centerText d-md-flex h-100 justify-content-center flex-column text-left">
-						<h1>Grexter landing Page</h1>
-						<h4>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab modi itaque eum mollitia at
-							aliquid quos neque vero est iure.
-						</h4>
-					</div>
-				</Col>
-				<Col md="6">
-					<div className="formCard">
-						<Form />
-					</div>
-				</Col>
-			</Row>
-		</React.Fragment>
-	);
+const LandingCover = props => {
+  const { name, desc, bookVisitClicked } = props;
+  return (
+    <React.Fragment>
+      <Row className="CoverRow">
+        <Col md="6">
+          <div className="centerText d-md-flex h-100 pt-4 flex-column text-left">
+            <h1>{name}</h1>
+            <h4>{desc}</h4>
+          </div>
+        </Col>
+        <Col md="6">
+          <div className="formCard">
+            <Form bookVisitClicked={bookVisitClicked} />
+          </div>
+        </Col>
+      </Row>
+    </React.Fragment>
+  );
 };
 export default LandingCover;

@@ -5,7 +5,7 @@ import "./style.css";
 // import moduleName from '../../static/images/'
 
 const Rooms = props => {
-  const { layouts } = props;
+  const { layouts, bookVisitClickHandler } = props;
   const { sub_layouts = [] } = layouts[0] || {};
 
   let single_occupancy = [];
@@ -66,19 +66,22 @@ const Rooms = props => {
   ];
 
   const SubLayouts = LayoutsArray.map(sLayout => {
-    return (
-      <RoomCard
-        key={sLayout[2]}
-        name={sLayout[2]}
-        src={sLayout[1]}
-        price={sLayout[0]}
-      />
-    );
+    if (sLayout && sLayout.length > 0) {
+      return (
+        <RoomCard
+          key={sLayout[2]}
+          name={sLayout[2]}
+          src={sLayout[1]}
+          price={sLayout[0]}
+          bookVisitClickHandler={bookVisitClickHandler}
+        />
+      );
+    }
   });
 
   return (
     <Container>
-      <Row>{SubLayouts}</Row>
+      <Row className="cardsRow">{SubLayouts}</Row>
     </Container>
   );
 };

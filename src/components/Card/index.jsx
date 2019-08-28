@@ -3,9 +3,10 @@ import { Col, Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import notAvailableImage from "../../static/images/notAvailable.jpg";
 import "./style.css";
 import Button from "../Button/index";
+import Image from "react-shimmer";
 
 const RoomsCard = props => {
-  let { name, price, src } = props;
+  let { name, price, src, bookVisitClickHandler } = props;
   let notAvailable = true;
   if (name || src || price) {
     notAvailable = false;
@@ -20,7 +21,7 @@ const RoomsCard = props => {
     <Col sm="12" md="6" className="building-card-container ">
       <Card>
         <CardImg
-          top
+          // top
           width="100%"
           src={src ? src : notAvailableImage}
           alt="Card image cap"
@@ -35,7 +36,7 @@ const RoomsCard = props => {
           <CardBody className="card-foot">
             <CardTitle className="buildings-cardview-type">{name}</CardTitle>
             <CardText className="price-tag"> ₹ {price}</CardText>
-            <Button>Book A Visit</Button>
+            <Button onClick={bookVisitClickHandler}>Book A Visit</Button>
           </CardBody>
         )}
       </Card>

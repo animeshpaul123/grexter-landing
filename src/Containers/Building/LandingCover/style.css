@@ -1,0 +1,20 @@
+.formCard {
+  background-color: rgb(255, 255, 255) !important;
+  padding-bottom: 17px !important;
+}
+
+.centerText h1 {
+  color: #f5c513;
+  font-size: 44px !important;
+  font-family: "abel-regular";
+}
+
+.centerText h4 {
+  color: #ffffff;
+  font-family: "abel-regular";
+  line-height: 30px;
+}
+
+.CoverRow {
+  margin-top: 101px !important;
+}

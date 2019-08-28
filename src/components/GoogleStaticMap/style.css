@@ -1,0 +1,25 @@
+.addressText h3 {
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Montserrat-LightItalic" !important;
+}
+
+.addressText h4 {
+  color: #292c74;
+  font-family: "abel-regular";
+  line-height: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 38px;
+}
+.mapRow {
+  height: 100%;
+  background-color: #f5c513 !important;
+}
+.mapView {
+  height: 300px;
+}
+
+@media all and (min-width: 768px) {
+}
