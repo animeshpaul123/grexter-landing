@@ -1,49 +1,56 @@
 .main {
-  margin-top: 100px;
-  height: calc(100vh - 100px);
+	margin-top: 100px;
+	height: calc(100vh - 100px);
 }
 .main h1 {
-  font-size: 20px;
-  width: 100%;
+	font-size: 20px;
+	width: 100%;
 }
 .main h4 {
-  font-size: 17px;
-  font-weight: 350;
-  width: 100%;
+	font-size: 17px;
+	font-weight: 350;
+	width: 100%;
 }
 .main .formCard {
-  border-radius: 7px;
-  font-size: 1.5rem;
-  color: #292c74;
-  margin: 30px 20px;
-  padding: 35px 30px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+	border-radius: 7px;
+	font-size: 1.5rem;
+	margin: 20px 0 30px;
+	color: #292c74;
+	padding: 35px 20px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
 }
 .main .formCard input::placeholder {
-  font-size: 14px;
+	font-size: 14px;
 }
 .main .formCard .invalid-feedback,
 .main .formCard .error-text {
-  font-size: 13px;
-  margin-top: 10px;
+	font-size: 13px;
+	margin-top: 10px;
 }
 .main .formCard .error-text {
-  margin: 20px 0;
+	margin: 20px 0;
+}
+.main .formCard .formHeader {
+	font-size: 19px;
 }
 @media screen and (min-width: 768px) {
-  /* .main {
-		padding-top: 100px;
-	} */
-  .main .centerText {
-    padding: 0 30px 0 0;
-  }
-  .main h1 {
-  }
+	.main .formCard {
+		border-radius: 7px;
+		color: #292c74;
+		margin: 30px 20px;
+		padding: 35px 30px 0;
+	}
+	.main .formCard .formHeader {
+		font-size: 26px;
+	}
+	.main .centerText {
+		padding: 0 30px 0 0;
+	}
 }
 @media screen and (min-width: 991px) {
-  .main .formCard {
-    max-width: 350px;
-    margin-left: auto;
-  }
+	.main .formCard {
+		max-width: 350px;
+		margin-left: auto;
+	}
 }

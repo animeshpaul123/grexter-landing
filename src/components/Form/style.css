@@ -1,41 +1,53 @@
 .bookAVisit:hover {
-  background-color: rgb(41, 44, 116);
-  color: rgb(241, 241, 241) !important;
+	background-color: rgb(41, 44, 116);
+	color: rgb(241, 241, 241) !important;
 }
 .bookAVisit.submit {
-  font-family: Montserrat-Light !important;
-  display: block;
-  margin: 40px auto 0;
-  font-size: 12pt;
-  font-weight: 700;
-  letter-spacing: 2px;
-  background-color: #fff;
-  color: #f5c513;
-  border-color: #f5c513;
-  border-radius: 27.5px;
-  font-size: 18px;
-  padding: 5px 30px;
-  text-align: center;
-  margin-top: 8px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+	font-family: Montserrat-Light !important;
+	display: block;
+	margin: 26px auto 0;
+	font-size: 12pt;
+	font-weight: 700;
+	letter-spacing: 2px;
+	background-color: #fff;
+	color: #f5c513;
+	border-color: #f5c513;
+	border-radius: 27.5px;
+	font-size: 18px;
+	padding: 5px 30px;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+}
+form .form-group {
+	margin-bottom: 0.6rem;
+}
+.bookAVisit.submit.disable-btn {
+	cursor: not-allowed;
+}
+.bookAVisit.submit.disable-btn:hover,
+.bookAVisit.submit.disable-btn:active {
+	background-color: #fff;
+	color: #f5c513 !important;
+	border-color: #f5c513;
 }
 
 .bookAVisit.submit:hover,
 .bookAVisit.submit:active {
-  background-color: #f5c513;
-  color: #fff;
-  border-color: #f5c513;
+	background-color: #f5c513;
+	color: #fff;
+	border-color: #f5c513;
 }
 
 .sched-suc-modal-h {
-  color: #f5c513;
+	color: #f5c513;
 }
 .sched-suc-modal-b,
 .sched-suc-modal-h {
-  font-size: 24px;
+	font-size: 24px;
 }
 
 .formHeader {
-  color: #f5c513;
+	color: #f5c513;
 }
