@@ -8,7 +8,7 @@ const Cover = props => {
   let coverImageSrc = [];
   let style;
   const defaultImage =
-    "https://d2lb8po6ulqbmf.cloudfront.net/newassets/comingsoon-carousel.jpg";
+  "https://d2lb8po6ulqbmf.cloudfront.net/newassets/home_banner.jpg";
   if (images && images.length > 0) {
     coverImageSrc = images.find(img => {
       return img.is_cover_image === 1;
@@ -18,7 +18,7 @@ const Cover = props => {
   }
 
   style = {
-    background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${
+    background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${
       coverImageSrc.url ? coverImageSrc.url : defaultImage
     })`
   };

@@ -42,26 +42,29 @@ class Building extends Component {
     );
     const buildingData = await res.json();
 
-    const response = await fetch(
-      `https://backend.grexter.in/nearby-buildings?include=location,landmarks,area,layouts,layout_prices,building_images&lon=&lat=`
-    );
-    const allBuildingsData = await response.json();
-    console.log(allBuildingsData);
-
-    const selectOptionsar = [];
-
-    allBuildingsData.map(data => {
-      selectOptionsar.push({
-        name: data.name,
-        id: data.id
-      });
-    });
+    // const response = await fetch(
+    //   `https://backend.grexter.in/nearby-buildings?include=location,landmarks,area,layouts,layout_prices,building_images&lon=&lat=`
+    // );
+    // const allBuildingsData = await response.json();
+    // console.log(allBuildingsData);
 
     const res1 = await fetch(
       `https://backend.grexter.in/nearby-buildings?include=location,landmarks,area,layouts,layout_prices,building_images&lon=${buildingData.location.longitude}&lat=${buildingData.location.latitude}`
     );
 
     let nearbyProperties = await res1.json();
+
+    const selectOptionsar = [];
+
+    nearbyProperties.map(data => {
+      selectOptionsar.push({
+        name: data.name,
+        id: data.id
+      });
+    });
+
+    console.log(selectOptionsar);
+
     nearbyProperties = nearbyProperties.slice(1, 4);
     this.setState({ buildingData, nearbyProperties, selectOptionsar });
   }
