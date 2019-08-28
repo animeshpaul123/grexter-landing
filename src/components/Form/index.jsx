@@ -13,8 +13,7 @@ class ScheduleVisit extends Component {
 		// layout_id: 6,
 		// message: "",
 		name: '',
-		dropdown: '1',
-		selectedInterestOption: 'Hi',
+		dropdown: '',
 		// interestOptions : [],
 		// status: "",
 		toast: false,
@@ -29,7 +28,12 @@ class ScheduleVisit extends Component {
 
 	handleCheck = (event) => {
 		event.preventDefault();
-		const { name, contact_number } = this.state;
+		const { selectOptionsar } = this.props;
+
+		const { name, contact_number, dropdown } = this.state;
+		if (dropdown === '') {
+			this.setState({ dropdown: selectOptionsar[0].name });
+		}
 
 		const { validate } = this.state;
 		if (name === '') {
@@ -88,15 +92,23 @@ class ScheduleVisit extends Component {
 		console.log(this.state);
 	};
 	handleSubmit = (e) => {
-		this.setState({ loader: true, toast: true });
+		this.setState({ loader: true, toast: true }, () => {
+			console.log('state=====================', this.state);
+		});
 	};
 
 	render() {
 		// prettier-ignore
 		const { toast, loader, err, name, contact_number,  validate ,selectedInterestOption} = this.state;
-		const { bookVisitClicked } = this.props;
+		const { bookVisitClicked, selectOptionsar } = this.props;
+		let disabledCls = '',
+			disabled = false;
 		if (bookVisitClicked === true) {
 			document.getElementById('name').focus();
+		}
+		if (selectOptionsar && selectOptionsar.length <= 0) {
+			disabledCls = 'disable-btn';
+			disabled = true;
 		}
 		return (
 			<div className="form">
@@ -134,27 +146,27 @@ class ScheduleVisit extends Component {
 						<FormFeedback invalid>Please enter a valid phone number</FormFeedback>
 					</FormGroup>
 					<FormGroup>
-						<label style={{ fontSize: '14px', fontWeight: 'bold' }}>Your interest :</label>
+						<label style={{ fontSize: '14px', fontWeight: 'bold' }}>Buildings :</label>
 						<Input
 							maxLength="10"
 							type="select"
 							placeholder="Phone Number"
 							className="input-text"
-							invalid={false}
 							name="dropdown"
-							value={selectedInterestOption}
 							onChange={this.handelSelectChange}
-							invalid={validate.phnumErr}
 						>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
+							{selectOptionsar.map((option) => {
+								return <option key={option.id}>{option.name}</option>;
+							})}
 						</Input>
 					</FormGroup>
 					<FormGroup>
-						<button type="submit" className="btn bookAVisit submit" onClick={this.handleCheck}>
+						<button
+							type="submit"
+							className={`btn bookAVisit submit ${disabledCls}`}
+							disabled={disabled}
+							onClick={this.handleCheck}
+						>
 							Submit
 						</button>
 					</FormGroup>
