@@ -1,8 +1,11 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
+import { Col, Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import RoomCard from "../Card";
 import "./style.css";
 // import moduleName from '../../static/images/'
+import { LoadersArr } from "./loaderhelper";
+import Image from "react-shimmer";
 
 const Rooms = props => {
   const { layouts, bookVisitClickHandler } = props;
@@ -65,6 +68,9 @@ const Rooms = props => {
     four_occupancy
   ];
 
+  const PreLoader = LoadersArr.map(hg => {
+    return <RoomCard src={hg.src} key={hg.name} />;
+  });
   const SubLayouts = LayoutsArray.map(sLayout => {
     if (sLayout && sLayout.length > 0) {
       return (
@@ -81,7 +87,9 @@ const Rooms = props => {
 
   return (
     <Container>
-      <Row className="cardsRow">{SubLayouts}</Row>
+      <Row className="cardsRow">
+        {sub_layouts.length ? SubLayouts : PreLoader}
+      </Row>
     </Container>
   );
 };

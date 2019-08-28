@@ -4,8 +4,8 @@ import logo from "../../static/images/shape-7.png";
 
 const Yello2Nut = props => {
   return (
-    <div class="yello2nut ">
-      <img src={logo} class="lazy" />
+    <div className="yello2nut ">
+      <img src={logo} className="lazy" />
       <h1>{props.text}</h1>
     </div>
   );

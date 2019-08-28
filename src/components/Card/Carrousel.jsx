@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 
+
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
 const Carrousel = props => {
