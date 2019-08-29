@@ -12,7 +12,7 @@ const OtherProperties = props => {
     dots: true,
     lazyLoad: true,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 2000,
     arrows: false,
     speed: 500,
     slidesToShow: 1,
@@ -39,7 +39,6 @@ const OtherProperties = props => {
       );
     });
   }
-  console.log(LoadersArr);
 
   const preLoder = LoadersArr.map(n => (
     <Carrousel coverImage={n.src} key={n.name} />

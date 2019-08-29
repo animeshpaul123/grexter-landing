@@ -1,4 +1,9 @@
-.Footervisit-us:hover {
+.bgYellow {
+  color: #f5c513;
+  border-color: #f5c513 !important;
+  border-width: 2px !important;
+}
+
+.bgYellow:hover {
   background-color: #f5c513 !important;
-  /* color: #f5c513 ; */
 }

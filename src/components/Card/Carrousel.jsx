@@ -1,15 +1,13 @@
 import React from "react";
-import "./style.css";
-
-
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+
+import "./style.css";
 
 const Carrousel = props => {
   const { name, areaName, coverImage } = props;
   return (
     <Card className="mr-3">
       <CardImg
-        // top
         width="100%"
         src={
           coverImage
