@@ -8,7 +8,6 @@ import OtherProperties from '../../Components/OtherProperties';
 import Footer from '../../Components/Footer';
 import Header from '../../Components/Header';
 
-import coverImg from '../../static/images/chill.jpg';
 import LandingCover from './LandingCover';
 import Yellow2nut from '../../Components/Yellow2nut';
 
@@ -32,20 +31,12 @@ class Building extends Component {
 
 	async componentDidMount() {
 		let params = window.location.search;
-		// let params = queryString.parse(url);
 		const id = params.split('=')[1];
-		console.log(id);
 		try {
 			const res = await fetch(
 				`https://backend.grexter.in/buildings/${id}?include=location,amenities,landmarks,area,subarea`
 			);
 			const buildingData = await res.json();
-
-			// const response = await fetch(
-			//   `https://backend.grexter.in/nearby-buildings?include=location,landmarks,area,layouts,layout_prices,building_images&lon=&lat=`
-			// );
-			// const allBuildingsData = await response.json();
-			// console.log(allBuildingsData);
 
 			const res1 = await fetch(
 				`https://backend.grexter.in/nearby-buildings?include=location,landmarks,area,layouts,layout_prices,building_images&lon=${buildingData
@@ -56,14 +47,13 @@ class Building extends Component {
 
 			const selectOptionsar = [];
 
-			nearbyProperties.map((data) => {
+			nearbyProperties.forEach((data) => {
 				selectOptionsar.push({
 					name: data.name,
 					id: data.id
 				});
 			});
 
-			console.log(selectOptionsar);
 
 			nearbyProperties = nearbyProperties.slice(1, 4);
 			this.setState({ buildingData, nearbyProperties, selectOptionsar });
@@ -82,27 +72,8 @@ class Building extends Component {
 	};
 	render() {
 		const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
-		const { address, images, name, id, location, description, layouts = [] } = this.state.buildingData;
-		const { logoLink } = this.state.footer;
+		const { address, images, name, location, description, layouts = [] } = this.state.buildingData;
 
-		// const { subLayouts } = layouts.subLayouts;
-
-		console.log(
-			'address====',
-			address,
-			'images====',
-			images,
-			'name====',
-			name,
-			'id====',
-			id,
-			'location====',
-			location,
-			'description====',
-			description,
-			'layouts====',
-			layouts
-		);
 
 		return (
 			<Fragment>

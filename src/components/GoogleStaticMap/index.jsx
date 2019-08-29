@@ -4,6 +4,12 @@ import "./style.css";
 
 const GoogleStaticMap = props => {
   const { address, location } = props;
+  if (location) {
+    var { longitude, latitude } = location;
+  }
+
+  //console.log(longitude, latitude);
+
   return (
     <React.Fragment>
       <Row className="mapRow">

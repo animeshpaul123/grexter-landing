@@ -1,11 +1,10 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
-import { Col, Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
-import RoomCard from "../Card";
+
+// Local files
 import "./style.css";
-// import moduleName from '../../static/images/'
+import RoomCard from "../Card";
 import { LoadersArr } from "./loaderhelper";
-import Image from "react-shimmer";
 
 const Rooms = props => {
   const { layouts, bookVisitClickHandler } = props;
@@ -82,6 +81,8 @@ const Rooms = props => {
           bookVisitClickHandler={bookVisitClickHandler}
         />
       );
+    } else {
+      return [];
     }
   });
 
