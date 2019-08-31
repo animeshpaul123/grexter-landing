@@ -33,7 +33,6 @@ class OtherProperties extends Component {
       className: "center",
       centerMode: true,
       infinite: true,
-      dots: true,
       lazyLoad: true,
       autoplay: true,
       autoplaySpeed: 2000,

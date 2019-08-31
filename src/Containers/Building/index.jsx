@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import LazyLoad from "react-lazyload";
 
 import Cover from "../../Components/Cover";
 import Rooms from "../../Components/Rooms";
@@ -63,13 +64,15 @@ class Building extends Component {
     }
   }
 
-  bookVisitClickHandler = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(() => {
+  bookVisitClickHandler = async () => {
+    await setTimeout(() => {
       this.setState({
         bookVisitClicked: true
       });
     }, 800);
+    setTimeout(() => {
+      this.setState({ bookVisitClicked: false });
+    }, 810);
   };
   render() {
     const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
@@ -77,7 +80,6 @@ class Building extends Component {
       address,
       images,
       name,
-      location,
       description,
       layouts = []
     } = this.state.buildingData;
@@ -98,19 +100,34 @@ class Building extends Component {
           </ErrorBoundary>
         </Cover>
         <Yellow2nut text="Rooms" />
-        <Rooms
-          layouts={layouts}
-          bookVisitClickHandler={this.bookVisitClickHandler}
-        />
-        <Yellow2nut text="Inclusive" />
+        <LazyLoad>
+          <Rooms
+            layouts={layouts}
+            bookVisitClickHandler={this.bookVisitClickHandler}
+          />
+        </LazyLoad>
+        <LazyLoad>
+          <Yellow2nut text="Inclusive" />
+        </LazyLoad>
+
         <Inclusive />
         <Yellow2nut text="Gallery" />
-        <Gallery images={images} />
-        <GalleryNew images={images} />
+        <LazyLoad>
+          <Gallery images={images} />
+        </LazyLoad>
+        <LazyLoad>
+          <GalleryNew images={images} />
+        </LazyLoad>
+
         <Yellow2nut text="Address and Maps  " />
-        <GoogleStaticMap address={address} name={name} />
+        <LazyLoad>
+          <GoogleStaticMap address={address} name={name} />
+        </LazyLoad>
         <Yellow2nut text="Other Properties" />
-        <OtherProperties nearby={nearbyProperties} />
+        <LazyLoad>
+          <OtherProperties nearby={nearbyProperties} />
+        </LazyLoad>
+
         <Footer {...this.state.footer} />
       </Fragment>
     );

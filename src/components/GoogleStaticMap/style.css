@@ -28,11 +28,17 @@
     background-color: #f5c513 !important;
   }
 }
-@media all and (max-width: 420px) {
+@media all and (max-width: 560px) {
   .mapView iframe {
     height: 52vh;
   }
   .addressText h4 {
     font-size: 18px;
+  }
+}
+@media all and (min-width: 768px) {
+  .mapRow {
+    height: 50vh;
+    background-color: #f5c513 !important;
   }
 }

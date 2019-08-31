@@ -29,7 +29,7 @@ const LandingCover = props => {
           </div>
         </Col>
         <Col md="6">
-          <div className="formCard">
+          <div className="formCard" id="form">
             <Form
               bookVisitClicked={bookVisitClicked}
               selectOptionsar={selectOptionsar}

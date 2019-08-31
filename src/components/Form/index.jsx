@@ -97,6 +97,7 @@ class ScheduleVisit extends Component {
     const { bookVisitClicked, selectOptionsar } = this.props;
     let disabledCls = "",
       disabled = false;
+    console.log('trudbchdbhbds===',bookVisitClicked)
     if (bookVisitClicked === true) {
       document.getElementById("name").focus();
     }
