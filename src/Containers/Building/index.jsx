@@ -13,6 +13,9 @@ import Yellow2nut from '../../Components/Yellow2nut';
 
 // css starts
 import './style.css';
+import ErrorBoundary from '../ErrorBoundary';
+import Gallery from '../../Components/Gallery';
+import GalleryNew from '../../Components/GalleryNew';
 
 class Building extends Component {
 	state = {
@@ -54,7 +57,6 @@ class Building extends Component {
 				});
 			});
 
-
 			nearbyProperties = nearbyProperties.slice(1, 4);
 			this.setState({ buildingData, nearbyProperties, selectOptionsar });
 		} catch (error) {
@@ -73,23 +75,29 @@ class Building extends Component {
 	render() {
 		const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
 		const { address, images, name, location, description, layouts = [] } = this.state.buildingData;
-
+		console.log('nearByProperties==', nearbyProperties);
+		console.log('building data==', this.state.buildingData);
 
 		return (
 			<Fragment>
 				<Header />
 				<Cover images={images}>
-					<LandingCover
-						name={name}
-						desc={description}
-						bookVisitClicked={bookVisitClicked}
-						selectOptionsar={selectOptionsar}
-					/>
+					<ErrorBoundary>
+						<LandingCover
+							name={name}
+							desc={description}
+							bookVisitClicked={bookVisitClicked}
+							selectOptionsar={selectOptionsar}
+						/>
+					</ErrorBoundary>
 				</Cover>
 				<Yellow2nut text="Rooms" />
 				<Rooms layouts={layouts} bookVisitClickHandler={this.bookVisitClickHandler} />
 				<Yellow2nut text="Inclusive" />
 				<Inclusive />
+				<Yellow2nut text="Gallery" />
+				<Gallery images={images} />
+				<GalleryNew images={images} />
 				<Yellow2nut text="Address and Maps  " />
 				<GoogleStaticMap address={address} location={location} />
 				<Yellow2nut text="Other Properties" />
