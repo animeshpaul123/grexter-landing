@@ -35,7 +35,7 @@ class OtherProperties extends Component {
       infinite: true,
       dots: true,
       lazyLoad: true,
-      autoplay: mouseEnter ? false : true,
+      autoplay: true,
       autoplaySpeed: 2000,
       arrows: mouseEnter,
       speed: 500,
