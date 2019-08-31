@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import "./style.css";
 
 const Carrousel = props => {
-  const { name, areaName, coverImage } = props;
+  const { name, areaName, coverImage, dis } = props;
   return (
     <Card className="mr-3">
       <CardImg
@@ -19,6 +19,7 @@ const Carrousel = props => {
       <CardBody className="card-foot">
         <CardTitle className="buildings-cardview-type">{name}</CardTitle>
         <CardText className="areaName">{areaName}</CardText>
+        <p className="distance">{dis} km</p>
       </CardBody>
     </Card>
   );

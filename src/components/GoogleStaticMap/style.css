@@ -14,12 +14,25 @@
   margin-bottom: 38px;
 }
 .mapRow {
+  min-height: 350px;
   height: 100%;
   background-color: #f5c513 !important;
 }
-.mapView {
-  height: 300px;
+.mapView iframe {
+  height: 100%;
 }
 
 @media all and (min-width: 768px) {
+  .mapRow {
+    height: 40vh;
+    background-color: #f5c513 !important;
+  }
+}
+@media all and (max-width: 420px) {
+  .mapView iframe {
+    height: 52vh;
+  }
+  .addressText h4 {
+    font-size: 18px;
+  }
 }

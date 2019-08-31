@@ -14,6 +14,22 @@
   padding-right: 16px;
   width: 225px;
 }
+
+.distance {
+  font-family: "Montserrat-Light" !important;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: 1.2px;
+  text-align: right;
+  color: #062f6e;
+  position: absolute;
+  right: 10px;
+
+  bottom: 15px;
+}
 .areaName {
   display: flex;
   font-family: "Abel-Regular";
@@ -94,6 +110,14 @@
   .building-card-container:not(:first-child) {
     margin-top: 32px;
   }
+  .areaName {
+    font-size: 16px;
+    margin-bottom: 0%;
+  }
+  .distance {
+    font-size: 14px;
+    bottom: 0px;
+  }
 }
 @media all and (max-width: 992px) {
   .price-tag {
@@ -102,6 +126,14 @@
     font-size: 20px;
     padding-bottom: 8px;
     text-align: right;
+  }
+  .areaName {
+    font-size: 16px;
+    margin-bottom: 0%;
+  }
+  .distance {
+    font-size: 14px;
+    bottom: 0px;
   }
 }
 
@@ -115,5 +147,10 @@
   }
   .areaName {
     font-size: 16px;
+    margin-bottom: 0%;
+  }
+  .distance {
+    font-size: 14px;
+    bottom: 0px;
   }
 }
