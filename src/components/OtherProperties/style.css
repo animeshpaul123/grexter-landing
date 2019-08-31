@@ -17,10 +17,10 @@
 	}
 }
 .f-arrow-btn.prev-arrow-btn {
-	left: -75px;
+	left: 20px;
 }
 .f-arrow-btn.next-arrow-btn {
-	right: -75px;
+	right: 20px;
 }
 .f-arrow-btn.next-arrow-btn,
 .f-arrow-btn.prev-arrow-btn {
