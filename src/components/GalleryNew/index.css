@@ -1,0 +1,12 @@
+.slider-container-gallery .gallery-row {
+	display: block;
+}
+.slider-container-gallery .f-arrow-btn.prev-arrow-btn {
+	left: 10px;
+}
+.slider-container-gallery .f-arrow-btn.next-arrow-btn {
+	right: 10px;
+}
+.slider-container-gallery {
+	margin: auto;
+}

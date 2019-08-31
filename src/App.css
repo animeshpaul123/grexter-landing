@@ -71,6 +71,7 @@ footer .logo-wrapper .footer-content .visit-us a:hover,
 footer .logo-wrapper .footer-content .visit-us a:active {
 	color: #f5c513;
 	border-color: #f5c513;
+	background: #f5c513;
 }
 footer .logo-wrapper .footer-content .visit-us a:active {
 	position: relative;
