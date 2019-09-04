@@ -181,6 +181,7 @@ class ScheduleVisit extends Component {
 							className="input-text"
 							name="dropdown"
 							onChange={(event) => this.handelSelectChange(event, SelectHandler)}
+							disabled={pending}
 						>
 							{selectOptionsar.map((option) => {
 								return <option key={option.id}>{option.name}</option>;
