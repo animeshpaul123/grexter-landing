@@ -30,7 +30,7 @@ class Building extends Component {
 		},
 		bookVisitClicked: false,
 		selectOptionsar: [],
-		loader: false
+		loader: true
 	};
 
 	async componentDidMount() {
