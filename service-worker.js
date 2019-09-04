@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/grexter-landing/precache-manifest.d84b14a5884bafa150642bc457ece77c.js"
+  "/grexter-landing/precache-manifest.1dc51f5efeffe11d26623fe1ed6ccb3e.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/grexter-landing/static/css/main.df98c24e.chunk.css",
-    "main.js": "/grexter-landing/static/js/main.3e08ddd3.chunk.js",
-    "main.js.map": "/grexter-landing/static/js/main.3e08ddd3.chunk.js.map",
+    "main.js": "/grexter-landing/static/js/main.840d2f64.chunk.js",
+    "main.js.map": "/grexter-landing/static/js/main.840d2f64.chunk.js.map",
     "runtime~main.js": "/grexter-landing/static/js/runtime~main.935d7ac3.js",
     "runtime~main.js.map": "/grexter-landing/static/js/runtime~main.935d7ac3.js.map",
     "static/css/2.7eb17109.chunk.css": "/grexter-landing/static/css/2.7eb17109.chunk.css",
     "static/js/2.6507ba5a.chunk.js": "/grexter-landing/static/js/2.6507ba5a.chunk.js",
     "static/js/2.6507ba5a.chunk.js.map": "/grexter-landing/static/js/2.6507ba5a.chunk.js.map",
     "index.html": "/grexter-landing/index.html",
-    "precache-manifest.d84b14a5884bafa150642bc457ece77c.js": "/grexter-landing/precache-manifest.d84b14a5884bafa150642bc457ece77c.js",
+    "precache-manifest.1dc51f5efeffe11d26623fe1ed6ccb3e.js": "/grexter-landing/precache-manifest.1dc51f5efeffe11d26623fe1ed6ccb3e.js",
     "service-worker.js": "/grexter-landing/service-worker.js",
     "static/css/2.7eb17109.chunk.css.map": "/grexter-landing/static/css/2.7eb17109.chunk.css.map",
     "static/css/main.df98c24e.chunk.css.map": "/grexter-landing/static/css/main.df98c24e.chunk.css.map"
