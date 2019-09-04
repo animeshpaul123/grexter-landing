@@ -46,7 +46,6 @@ class ScheduleVisit extends Component {
       this.setState({ err: true });
     } else {
       this.setState({ err: false }, event => {
-        console.log(event);
         this.handleSubmit(event);
       });
     }
@@ -66,7 +65,6 @@ class ScheduleVisit extends Component {
     }
 
     this.setState({ validate });
-    console.log(validate);
   };
 
   handelPhnumChange = async evt => {
@@ -82,18 +80,15 @@ class ScheduleVisit extends Component {
       validate.phnumErr = true;
     }
     this.setState({ validate });
-    console.log(validate);
   };
   handelSelectChange = async evt => {
     await this.setState({ [evt.target.name]: evt.target.value, err: false });
-    console.log(this.state);
   };
   handleSubmit = async e => {
     this.setState({ loader: true }, () => {});
     let authKey =
       "ZW13dnl4bzd4dGF6MXlvaG9zeWIxZHk0N2dyMG9rYXEwOWlzb2N6ZTNxMndoMGYyZjI=";
     const { name, contact_number, dropdown } = this.state;
-    console.log(this.state);
 
     try {
       const res = await fetch(
@@ -117,7 +112,6 @@ class ScheduleVisit extends Component {
       );
 
       const data = await res.json();
-      console.log(data);
       this.setState({ loader: false, sent: data.status, toast: true }, () => {
         if(this.state.sent === 'success') {
           this.setState({name: '', contact_number: ''})
@@ -134,7 +128,6 @@ class ScheduleVisit extends Component {
     const { bookVisitClicked, selectOptionsar } = this.props;
     let disabledCls = "",
       disabled = false;
-    console.log("trudbchdbhbds===", bookVisitClicked);
     if (bookVisitClicked === true) {
       document.getElementById("name").focus();
     }

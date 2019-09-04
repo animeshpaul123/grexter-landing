@@ -35,7 +35,7 @@ class Building extends Component {
 
 	async componentDidMount() {
 		let params = window.location.search;
-		const id = params.split('=')[1];
+		const id = params.split('=')[1] || 25;
 		try {
 			const res = await fetch(
 				`https://backend.grexter.in/buildings/${id}?include=location,amenities,landmarks,area,subarea`
@@ -78,8 +78,8 @@ class Building extends Component {
 	render() {
 		const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
 		const { address, images, name, description, layouts = [] } = this.state.buildingData;
-		console.log('nearByProperties==', nearbyProperties);
-		console.log('building data==', this.state.buildingData);
+		// console.log('nearByProperties==', nearbyProperties);
+		// console.log('building data==', this.state.buildingData);
 
 		return (
 			<Fragment>
