@@ -129,7 +129,7 @@ class ScheduleVisit extends Component {
 	render() {
 		// prettier-ignore
 		const { toast, loader, err, name, contact_number,  validate, sent } = this.state;
-		const { bookVisitClicked, selectOptionsar, SelectHandler } = this.props;
+		const { bookVisitClicked, selectOptionsar, SelectHandler, pending } = this.props;
 		let disabledCls = '',
 			disabled = false;
 		console.log('trudbchdbhbds===', bookVisitClicked);
@@ -186,6 +186,11 @@ class ScheduleVisit extends Component {
 								return <option key={option.id}>{option.name}</option>;
 							})}
 						</Input>
+						{pending && (
+							<div className="input-loader">
+								<div className="loader" />
+							</div>
+						)}
 					</FormGroup>
 					<FormGroup>
 						<button

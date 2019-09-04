@@ -31,12 +31,13 @@ class Building extends Component {
 		bookVisitClicked: false,
 		selectOptionsar: [],
 		selectOption: '',
-		id: ''
+		loader: true,
+		pendingLoader: false
 	};
 
-	async componentDidMount() {
+	componentDidMount() {
 		let params = window.location.search;
-		const id = params.split('=')[1];
+		const id = params.split('=')[1] || 25;
 		this.getBuildingData(id);
 	}
 
@@ -64,7 +65,7 @@ class Building extends Component {
 			});
 
 			nearbyProperties = nearbyProperties.slice(1, 4);
-			this.setState({ buildingData, nearbyProperties, selectOptionsar });
+			this.setState({ buildingData, nearbyProperties, selectOptionsar, loader: false, pendingLoader: false });
 		} catch (err) {
 			console.log(err);
 		}
@@ -82,6 +83,7 @@ class Building extends Component {
 	};
 
 	onChangeSelectHandler = async (name) => {
+		this.setState({ pendingLoader: true });
 		const { selectOptionsar } = this.state;
 		const id = selectOptionsar.filter((each, i) => {
 			return each.name === name;
@@ -90,12 +92,14 @@ class Building extends Component {
 		this.getBuildingData(id);
 	};
 	render() {
-		const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
+		const { nearbyProperties, bookVisitClicked, selectOptionsar, loader, pendingLoader } = this.state;
 		const { address, images, name, description, layouts = [] } = this.state.buildingData;
 		console.log('nearByProperties==', nearbyProperties);
 		console.log('building data==', this.state.buildingData);
 
-		return (
+		return loader ? (
+			<div className="loader" />
+		) : (
 			<Fragment>
 				<Header />
 				<Cover images={images}>
@@ -106,6 +110,7 @@ class Building extends Component {
 							bookVisitClicked={bookVisitClicked}
 							selectOptionsar={selectOptionsar}
 							SelectHandler={this.onChangeSelectHandler}
+							pending={pendingLoader}
 						/>
 					</ErrorBoundary>
 				</Cover>
@@ -119,9 +124,6 @@ class Building extends Component {
 
 				<Inclusive />
 				<Yellow2nut text="Gallery" />
-				<LazyLoad>
-					<Gallery images={images} />
-				</LazyLoad>
 				<LazyLoad>
 					<GalleryNew images={images} />
 				</LazyLoad>
