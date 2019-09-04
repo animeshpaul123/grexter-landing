@@ -13,6 +13,7 @@ class ScheduleVisit extends Component {
     name: "",
     dropdown: "",
     toast: false,
+    sent: false,
     loader: false,
     err: false,
     validate: {}
@@ -87,17 +88,53 @@ class ScheduleVisit extends Component {
     await this.setState({ [evt.target.name]: evt.target.value, err: false });
     console.log(this.state);
   };
-  handleSubmit = e => {
-    this.setState({ loader: true, toast: true }, () => {});
+  handleSubmit = async e => {
+    this.setState({ loader: true }, () => {});
+    let authKey =
+      "ZW13dnl4bzd4dGF6MXlvaG9zeWIxZHk0N2dyMG9rYXEwOWlzb2N6ZTNxMndoMGYyZjI=";
+    const { name, contact_number, dropdown } = this.state;
+    console.log(this.state);
+
+    try {
+      const res = await fetch(
+        "https://grexter.kapturecrm.com/add-update-enquiry-from-other-source.html",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic ${authKey}`
+          },
+          body: JSON.stringify([
+            {
+              customer_name: name,
+              phone: contact_number,
+              email_id: "",
+              campaign_name: "website",
+              secSource: dropdown
+            }
+          ])
+        }
+      );
+
+      const data = await res.json();
+      console.log(data);
+      this.setState({ loader: false, sent: data.status, toast: true }, () => {
+        if(this.state.sent === 'success') {
+          this.setState({name: '', contact_number: ''})
+        }
+      });
+    } catch (error) {
+      this.setState({ loader: false, toast: true });
+    }
   };
 
   render() {
     // prettier-ignore
-    const { toast, loader, err, name, contact_number,  validate } = this.state;
+    const { toast, loader, err, name, contact_number,  validate, sent } = this.state;
     const { bookVisitClicked, selectOptionsar } = this.props;
     let disabledCls = "",
       disabled = false;
-    console.log('trudbchdbhbds===',bookVisitClicked)
+    console.log("trudbchdbhbds===", bookVisitClicked);
     if (bookVisitClicked === true) {
       document.getElementById("name").focus();
     }
@@ -168,7 +205,7 @@ class ScheduleVisit extends Component {
               disabled={disabled}
               onClick={this.handleCheck}
             >
-              Submit
+              {this.state.loader ? "Sending..." : "Submit"}
             </button>
           </FormGroup>
         </form>
@@ -185,9 +222,13 @@ class ScheduleVisit extends Component {
               this.setState({ toast: false });
             }}
           >
-            <div className="sched-suc-modal-h">Great!</div>
+            <div className="sched-suc-modal-h">
+              {sent === "success" ? "Great!" : "Oops!"}
+            </div>
             <div className="sched-suc-modal-b">
-              We will contact you within 24 to 48 hours..!
+              {sent === "success"
+                ? "We will contact you within 24 to 48 hours..!"
+                : "try again!"}
             </div>
           </SuccessModal>
         ) : null}
