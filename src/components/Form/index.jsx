@@ -18,14 +18,11 @@ class ScheduleVisit extends Component {
 		err: false,
 		validate: {}
 	};
-	name = React.createRef();
+
 	handleChange = (evt) => {
 		this.setState({ [evt.target.name]: evt.target.value, err: false });
 	};
-	componentDidMount() {
-		this.name.current.focus();
-		console.log('=================', this.name.current);
-	}
+
 	handleCheck = (event) => {
 		event.preventDefault();
 		const { selectOptionsar } = this.props;
@@ -49,6 +46,7 @@ class ScheduleVisit extends Component {
 			this.setState({ err: true });
 		} else {
 			this.setState({ err: false }, (event) => {
+				console.log(event);
 				this.handleSubmit(event);
 			});
 		}
@@ -68,6 +66,7 @@ class ScheduleVisit extends Component {
 		}
 
 		this.setState({ validate });
+		console.log(validate);
 	};
 
 	handelPhnumChange = async (evt) => {
@@ -83,14 +82,19 @@ class ScheduleVisit extends Component {
 			validate.phnumErr = true;
 		}
 		this.setState({ validate });
+		console.log(validate);
 	};
-	handelSelectChange = async (evt) => {
+	handelSelectChange = async (evt, SelectHandler) => {
 		await this.setState({ [evt.target.name]: evt.target.value, err: false });
+		const { dropdown } = this.state;
+		SelectHandler(dropdown);
+		console.log(this.state);
 	};
 	handleSubmit = async (e) => {
 		this.setState({ loader: true }, () => {});
 		let authKey = 'ZW13dnl4bzd4dGF6MXlvaG9zeWIxZHk0N2dyMG9rYXEwOWlzb2N6ZTNxMndoMGYyZjI=';
 		const { name, contact_number, dropdown } = this.state;
+		console.log(this.state);
 
 		try {
 			const res = await fetch('https://grexter.kapturecrm.com/add-update-enquiry-from-other-source.html', {
@@ -111,6 +115,7 @@ class ScheduleVisit extends Component {
 			});
 
 			const data = await res.json();
+			console.log(data);
 			this.setState({ loader: false, sent: data.status, toast: true }, () => {
 				if (this.state.sent === 'success') {
 					this.setState({ name: '', contact_number: '' });
@@ -124,9 +129,10 @@ class ScheduleVisit extends Component {
 	render() {
 		// prettier-ignore
 		const { toast, loader, err, name, contact_number,  validate, sent } = this.state;
-		const { bookVisitClicked, selectOptionsar } = this.props;
+		const { bookVisitClicked, selectOptionsar, SelectHandler } = this.props;
 		let disabledCls = '',
 			disabled = false;
+		console.log('trudbchdbhbds===', bookVisitClicked);
 		if (bookVisitClicked === true) {
 			document.getElementById('name').focus();
 		}
@@ -136,7 +142,7 @@ class ScheduleVisit extends Component {
 		}
 		return (
 			<div className="form">
-				<p className="formHeader">Let we Know You..!</p>
+				<p className="formHeader">Let us Know You..!</p>
 				<form>
 					<FormGroup>
 						<label style={{ fontSize: '14px', fontWeight: 'bold' }}>Name :</label>
@@ -149,7 +155,6 @@ class ScheduleVisit extends Component {
 							name="name"
 							value={name}
 							onChange={this.handleNameChange}
-							ref={this.name}
 						/>
 						<FormFeedback invalid>Please enter a valid name</FormFeedback>
 					</FormGroup>
@@ -175,14 +180,10 @@ class ScheduleVisit extends Component {
 							placeholder="Phone Number"
 							className="input-text"
 							name="dropdown"
-							onChange={this.handelSelectChange}
+							onChange={(event) => this.handelSelectChange(event, SelectHandler)}
 						>
 							{selectOptionsar.map((option) => {
-								return (
-									<option key={option.id} onClick={() => alert('you clicked building')}>
-										{option.name}
-									</option>
-								);
+								return <option key={option.id}>{option.name}</option>;
 							})}
 						</Input>
 					</FormGroup>
@@ -193,11 +194,12 @@ class ScheduleVisit extends Component {
 							disabled={disabled}
 							onClick={this.handleCheck}
 						>
-							{loader ? 'Sending...' : 'Submit'}
+							{this.state.loader ? 'Sending...' : 'Submit'}
 						</button>
 					</FormGroup>
 				</form>
 				{err ? <div className="error-text">Please Fill in all the fields before proceeding</div> : null}
+				<div>{loader ? <div className="loader" /> : null}</div>
 				{toast ? (
 					<SuccessModal
 						isOpen={toast}

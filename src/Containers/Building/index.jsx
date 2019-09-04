@@ -30,12 +30,17 @@ class Building extends Component {
 		},
 		bookVisitClicked: false,
 		selectOptionsar: [],
-		loader: true
+		selectOption: '',
+		id: ''
 	};
 
 	async componentDidMount() {
 		let params = window.location.search;
-		const id = params.split('=')[1] || 25;
+		const id = params.split('=')[1];
+		this.getBuildingData(id);
+	}
+
+	getBuildingData = async (id) => {
 		try {
 			const res = await fetch(
 				`https://backend.grexter.in/buildings/${id}?include=location,amenities,landmarks,area,subarea`
@@ -59,11 +64,11 @@ class Building extends Component {
 			});
 
 			nearbyProperties = nearbyProperties.slice(1, 4);
-			this.setState({ buildingData, nearbyProperties, selectOptionsar, loader: false });
-		} catch (error) {
-			console.error(error);
+			this.setState({ buildingData, nearbyProperties, selectOptionsar });
+		} catch (err) {
+			console.log(err);
 		}
-	}
+	};
 
 	bookVisitClickHandler = async () => {
 		await setTimeout(() => {
@@ -75,15 +80,22 @@ class Building extends Component {
 			this.setState({ bookVisitClicked: false });
 		}, 810);
 	};
-	render() {
-		const { nearbyProperties, bookVisitClicked, selectOptionsar, loader } = this.state;
-		const { address, images, name, description, layouts = [] } = this.state.buildingData;
-		// console.log('nearByProperties==', nearbyProperties);
-		// console.log('building data==', this.state.buildingData);
 
-		return loader ? (
-			<div className="loader" />
-		) : (
+	onChangeSelectHandler = async (name) => {
+		const { selectOptionsar } = this.state;
+		const id = selectOptionsar.filter((each, i) => {
+			return each.name === name;
+		})[0].id;
+		console.log(name, id);
+		this.getBuildingData(id);
+	};
+	render() {
+		const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
+		const { address, images, name, description, layouts = [] } = this.state.buildingData;
+		console.log('nearByProperties==', nearbyProperties);
+		console.log('building data==', this.state.buildingData);
+
+		return (
 			<Fragment>
 				<Header />
 				<Cover images={images}>
@@ -93,6 +105,7 @@ class Building extends Component {
 							desc={description}
 							bookVisitClicked={bookVisitClicked}
 							selectOptionsar={selectOptionsar}
+							SelectHandler={this.onChangeSelectHandler}
 						/>
 					</ErrorBoundary>
 				</Cover>
@@ -106,6 +119,9 @@ class Building extends Component {
 
 				<Inclusive />
 				<Yellow2nut text="Gallery" />
+				<LazyLoad>
+					<Gallery images={images} />
+				</LazyLoad>
 				<LazyLoad>
 					<GalleryNew images={images} />
 				</LazyLoad>
