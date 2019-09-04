@@ -15,7 +15,6 @@ import Yellow2nut from '../../Components/Yellow2nut';
 // css starts
 import './style.css';
 import ErrorBoundary from '../ErrorBoundary';
-import Gallery from '../../Components/Gallery';
 import GalleryNew from '../../Components/GalleryNew';
 
 class Building extends Component {
@@ -30,7 +29,8 @@ class Building extends Component {
 			linkedin: 'https://www.linkedin.com/company/grexter'
 		},
 		bookVisitClicked: false,
-		selectOptionsar: []
+		selectOptionsar: [],
+		loader: true
 	};
 
 	async componentDidMount() {
@@ -59,7 +59,7 @@ class Building extends Component {
 			});
 
 			nearbyProperties = nearbyProperties.slice(1, 4);
-			this.setState({ buildingData, nearbyProperties, selectOptionsar });
+			this.setState({ buildingData, nearbyProperties, selectOptionsar, loader: false });
 		} catch (error) {
 			console.error(error);
 		}
@@ -76,12 +76,14 @@ class Building extends Component {
 		}, 810);
 	};
 	render() {
-		const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
+		const { nearbyProperties, bookVisitClicked, selectOptionsar, loader } = this.state;
 		const { address, images, name, description, layouts = [] } = this.state.buildingData;
 		// console.log('nearByProperties==', nearbyProperties);
 		// console.log('building data==', this.state.buildingData);
 
-		return (
+		return loader ? (
+			<div className="loader" />
+		) : (
 			<Fragment>
 				<Header />
 				<Cover images={images}>

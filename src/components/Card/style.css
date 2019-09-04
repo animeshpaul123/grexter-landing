@@ -140,14 +140,16 @@
 
 @media all and (max-width: 420px) {
 	.areaName {
-		font-size: 16px;
+		font-size: 14px;
 		margin-bottom: 0%;
 	}
 	.distance {
-		font-size: 14px;
+		font-size: 12px;
 		bottom: 0px;
 	}
 }
-.card-body a, .card-body a:hover, .card-body a:active {
-  text-decoration: none;
+.card-body a,
+.card-body a:hover,
+.card-body a:active {
+	text-decoration: none;
 }

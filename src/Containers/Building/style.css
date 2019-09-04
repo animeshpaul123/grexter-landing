@@ -54,3 +54,24 @@
 		margin-left: auto;
 	}
 }
+.loader {
+	border: 7px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 7px solid #f5c513;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 1.5s linear infinite;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+@keyframes spin {
+	0% {
+		transform: translateX(-50%) rotate(0deg);
+	}
+	100% {
+		transform: translateX(-50%) rotate(360deg);
+	}
+}
