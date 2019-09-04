@@ -99,7 +99,6 @@ class GalleryNew extends Component {
 						nextSrc={imagesArr[(photoIndex + 1) % imagesArr.length]}
 						prevSrc={imagesArr[(photoIndex + imagesArr.length - 1) % imagesArr.length]}
 						onCloseRequest={(e) => {
-							document.unb
 							this.setState({ isOpen: false });
 						}}
 						onMovePrevRequest={() =>
