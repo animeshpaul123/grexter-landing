@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React, { Component, Fragment } from 'react';
-=======
-import React, { Component, Fragment } from "react";
-import LazyLoad from "react-lazyload";
->>>>>>> 8d5ba858827f64b195fd929be774ec12e344446e
+import LazyLoad from 'react-lazyload';
 
 import Cover from '../../Components/Cover';
 import Rooms from '../../Components/Rooms';
@@ -69,71 +65,62 @@ class Building extends Component {
 		}
 	}
 
-  bookVisitClickHandler = async () => {
-    await setTimeout(() => {
-      this.setState({
-        bookVisitClicked: true
-      });
-    }, 800);
-    setTimeout(() => {
-      this.setState({ bookVisitClicked: false });
-    }, 810);
-  };
-  render() {
-    const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
-    const {
-      address,
-      images,
-      name,
-      description,
-      layouts = []
-    } = this.state.buildingData;
-    console.log("nearByProperties==", nearbyProperties);
-    console.log("building data==", this.state.buildingData);
+	bookVisitClickHandler = async () => {
+		await setTimeout(() => {
+			this.setState({
+				bookVisitClicked: true
+			});
+		}, 800);
+		setTimeout(() => {
+			this.setState({ bookVisitClicked: false });
+		}, 810);
+	};
+	render() {
+		const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
+		const { address, images, name, description, layouts = [] } = this.state.buildingData;
+		console.log('nearByProperties==', nearbyProperties);
+		console.log('building data==', this.state.buildingData);
 
-    return (
-      <Fragment>
-        <Header />
-        <Cover images={images}>
-          <ErrorBoundary>
-            <LandingCover
-              name={name}
-              desc={description}
-              bookVisitClicked={bookVisitClicked}
-              selectOptionsar={selectOptionsar}
-            />
-          </ErrorBoundary>
-        </Cover>
-        <Yellow2nut text="Rooms" />
-        <LazyLoad>
-          <Rooms
-            layouts={layouts}
-            bookVisitClickHandler={this.bookVisitClickHandler}
-          />
-        </LazyLoad>
-        <LazyLoad>
-          <Yellow2nut text="Inclusive" />
-        </LazyLoad>
+		return (
+			<Fragment>
+				<Header />
+				<Cover images={images}>
+					<ErrorBoundary>
+						<LandingCover
+							name={name}
+							desc={description}
+							bookVisitClicked={bookVisitClicked}
+							selectOptionsar={selectOptionsar}
+						/>
+					</ErrorBoundary>
+				</Cover>
+				<Yellow2nut text="Rooms" />
+				<LazyLoad>
+					<Rooms layouts={layouts} bookVisitClickHandler={this.bookVisitClickHandler} />
+				</LazyLoad>
+				<LazyLoad>
+					<Yellow2nut text="Inclusive" />
+				</LazyLoad>
 
-        <Inclusive />
-        <Yellow2nut text="Gallery" />
-        <LazyLoad>
-          <GalleryNew images={images} />
-        </LazyLoad>
+				<Inclusive />
+				<Yellow2nut text="Gallery" />
+				<LazyLoad>
+					<GalleryNew images={images} />
+				</LazyLoad>
 
-        <Yellow2nut text="Address and Maps  " />
-        <LazyLoad>
-          <GoogleStaticMap address={address} name={name} />
-        </LazyLoad>
-        <Yellow2nut text="Other Properties" />
-        <LazyLoad>
-          <OtherProperties nearby={nearbyProperties} />
-        </LazyLoad>
+				<Yellow2nut text="Address and Maps  " />
+				<LazyLoad>
+					<GoogleStaticMap address={address} name={name} />
+				</LazyLoad>
+				<Yellow2nut text="Other Properties" />
+				<LazyLoad>
+					<OtherProperties nearby={nearbyProperties} />
+				</LazyLoad>
 
-        <Footer {...this.state.footer} />
-      </Fragment>
-    );
-  }
+				<Footer {...this.state.footer} />
+			</Fragment>
+		);
+	}
 }
 
 export default Building;
