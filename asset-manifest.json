@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/grexter-landing/static/css/main.df98c24e.chunk.css",
+    "main.css": "/grexter-landing/static/css/main.05b8b26e.chunk.css",
     "main.js": "/grexter-landing/static/js/main.04dc04e0.chunk.js",
     "main.js.map": "/grexter-landing/static/js/main.04dc04e0.chunk.js.map",
     "runtime~main.js": "/grexter-landing/static/js/runtime~main.935d7ac3.js",
@@ -9,9 +9,9 @@
     "static/js/2.6507ba5a.chunk.js": "/grexter-landing/static/js/2.6507ba5a.chunk.js",
     "static/js/2.6507ba5a.chunk.js.map": "/grexter-landing/static/js/2.6507ba5a.chunk.js.map",
     "index.html": "/grexter-landing/index.html",
-    "precache-manifest.00dd7b3928d1c826a8f8bcf19321d0b5.js": "/grexter-landing/precache-manifest.00dd7b3928d1c826a8f8bcf19321d0b5.js",
+    "precache-manifest.6d6cbb51546f2044d7d8d134ab7876a6.js": "/grexter-landing/precache-manifest.6d6cbb51546f2044d7d8d134ab7876a6.js",
     "service-worker.js": "/grexter-landing/service-worker.js",
     "static/css/2.7eb17109.chunk.css.map": "/grexter-landing/static/css/2.7eb17109.chunk.css.map",
-    "static/css/main.df98c24e.chunk.css.map": "/grexter-landing/static/css/main.df98c24e.chunk.css.map"
+    "static/css/main.05b8b26e.chunk.css.map": "/grexter-landing/static/css/main.05b8b26e.chunk.css.map"
   }
 }
