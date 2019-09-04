@@ -148,3 +148,6 @@
 		bottom: 0px;
 	}
 }
+.card-body a, .card-body a:hover, .card-body a:active {
+  text-decoration: none;
+}
