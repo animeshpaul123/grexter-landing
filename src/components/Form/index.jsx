@@ -84,8 +84,10 @@ class ScheduleVisit extends Component {
     this.setState({ validate });
     console.log(validate);
   };
-  handelSelectChange = async evt => {
+  handelSelectChange = async (evt, SelectHandler) => {
     await this.setState({ [evt.target.name]: evt.target.value, err: false });
+    const { dropdown } = this.state;
+    SelectHandler(dropdown);
     console.log(this.state);
   };
   handleSubmit = async e => {
@@ -119,8 +121,8 @@ class ScheduleVisit extends Component {
       const data = await res.json();
       console.log(data);
       this.setState({ loader: false, sent: data.status, toast: true }, () => {
-        if(this.state.sent === 'success') {
-          this.setState({name: '', contact_number: ''})
+        if (this.state.sent === "success") {
+          this.setState({ name: "", contact_number: "" });
         }
       });
     } catch (error) {
@@ -131,7 +133,7 @@ class ScheduleVisit extends Component {
   render() {
     // prettier-ignore
     const { toast, loader, err, name, contact_number,  validate, sent } = this.state;
-    const { bookVisitClicked, selectOptionsar } = this.props;
+    const { bookVisitClicked, selectOptionsar, SelectHandler } = this.props;
     let disabledCls = "",
       disabled = false;
     console.log("trudbchdbhbds===", bookVisitClicked);
@@ -144,7 +146,7 @@ class ScheduleVisit extends Component {
     }
     return (
       <div className="form">
-        <p className="formHeader">Let we Know You..!</p>
+        <p className="formHeader">Let us Know You..!</p>
         <form>
           <FormGroup>
             <label style={{ fontSize: "14px", fontWeight: "bold" }}>
@@ -152,7 +154,6 @@ class ScheduleVisit extends Component {
             </label>
             <Input
               id="name"
-              autoFocus
               type="text"
               placeholder="Name"
               className="input-text"
@@ -191,7 +192,7 @@ class ScheduleVisit extends Component {
               placeholder="Phone Number"
               className="input-text"
               name="dropdown"
-              onChange={this.handelSelectChange}
+              onChange={event => this.handelSelectChange(event, SelectHandler)}
             >
               {selectOptionsar.map(option => {
                 return <option key={option.id}>{option.name}</option>;

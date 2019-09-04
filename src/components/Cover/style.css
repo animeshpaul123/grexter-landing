@@ -1,5 +1,5 @@
 .main {
-  height: 80vh !important;
+  height: 100% !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-attachment: fixed !important;
@@ -8,9 +8,9 @@
   margin-top: -11px !important;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .main {
-    height: 100% !important;
-    /* padding-top: 74px !important; */
-  }
-}
+    height: 100% !important; */
+/* padding-top: 74px !important; */
+/* }
+} */

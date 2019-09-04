@@ -30,12 +30,18 @@ class Building extends Component {
       linkedin: "https://www.linkedin.com/company/grexter"
     },
     bookVisitClicked: false,
-    selectOptionsar: []
+    selectOptionsar: [],
+    selectOption: "",
+    id: ""
   };
 
   async componentDidMount() {
     let params = window.location.search;
     const id = params.split("=")[1];
+    this.getBuildingData(id);
+  }
+
+  getBuildingData = async id => {
     try {
       const res = await fetch(
         `https://backend.grexter.in/buildings/${id}?include=location,amenities,landmarks,area,subarea`
@@ -59,11 +65,11 @@ class Building extends Component {
 
       nearbyProperties = nearbyProperties.slice(1, 4);
       this.setState({ buildingData, nearbyProperties, selectOptionsar });
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.log(err);
     }
-  }
-
+  };
+  
   bookVisitClickHandler = async () => {
     await setTimeout(() => {
       this.setState({
@@ -73,6 +79,15 @@ class Building extends Component {
     setTimeout(() => {
       this.setState({ bookVisitClicked: false });
     }, 810);
+  };
+
+  onChangeSelectHandler = async name => {
+    const { selectOptionsar } = this.state;
+    const id = selectOptionsar.filter((each, i) => {
+      return each.name === name;
+    })[0].id;
+    console.log(name, id);
+    this.getBuildingData(id);
   };
   render() {
     const { nearbyProperties, bookVisitClicked, selectOptionsar } = this.state;
@@ -96,6 +111,7 @@ class Building extends Component {
               desc={description}
               bookVisitClicked={bookVisitClicked}
               selectOptionsar={selectOptionsar}
+              SelectHandler={this.onChangeSelectHandler}
             />
           </ErrorBoundary>
         </Cover>

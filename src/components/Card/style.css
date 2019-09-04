@@ -1,153 +1,167 @@
 .price-tag {
-	font-family: "Montserrat-Light";
-	font-size: 21px;
-	font-weight: bold;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: 2;
-	letter-spacing: 1.2px;
-	text-align: right;
-	color: #062f6e;
-	position: absolute;
-	left: 100%;
-	transform: translateX(-100%);
-	padding-right: 16px;
-	width: 225px;
+  font-family: "Montserrat-Light";
+  font-size: 21px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: 1.2px;
+  text-align: right;
+  color: #062f6e;
+  position: absolute;
+  left: 100%;
+  transform: translateX(-100%);
+  padding-right: 16px;
+  width: 225px;
 }
 
 .distance {
-	font-family: "Montserrat-Light" !important;
-	font-size: 18px;
-	font-weight: bold;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: 2;
-	letter-spacing: 1.2px;
-	text-align: right;
-	color: #062f6e;
-	position: absolute;
-	right: 10px;
+  font-family: "Montserrat-Light" !important;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: 1.2px;
+  text-align: right;
+  color: #062f6e;
+  position: absolute;
+  right: 10px;
 
-	bottom: 15px;
+  bottom: 15px;
 }
 .areaName {
-	display: flex;
-	font-family: "Abel-Regular";
-	font-size: 24px;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: 1.16;
-	letter-spacing: normal;
-	color: #062f6e;
+  display: flex;
+  font-family: "Abel-Regular";
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  color: #062f6e;
 }
 .buildings-cardview-type {
-	display: flex;
-	font-family: "Abel-Regular";
-	font-size: 30px;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: 1.16;
-	letter-spacing: normal;
-	color: #f5c513;
+  display: flex;
+  font-family: "Abel-Regular";
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  color: #f5c513;
 }
 
 .other-recommended {
-	font-family: "Montserrat-Regular";
-	font-size: 16px;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: 3.06;
-	letter-spacing: 1.6px;
-	text-align: center;
-	color: #000000;
-	margin: 50px 0px 16px 0px;
+  font-family: "Montserrat-Regular";
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 3.06;
+  letter-spacing: 1.6px;
+  text-align: center;
+  color: #000000;
+  margin: 50px 0px 16px 0px;
 }
 
 .building-card-container {
-	transition: 200ms;
-	margin-bottom: 51px;
+  transition: 200ms;
+  margin-bottom: 51px;
 }
 
 .building-card-container:hover {
-	transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .recommended-property-carousel {
-	display: none;
+  display: none;
 }
 
 .recommended-property-card-wrapper {
-	height: 300px;
+  height: 300px;
 }
 
 @media all and (min-width: 768px) and (max-width: 992px) {
-	.shared-private-btn {
-		width: auto !important;
-		padding: 8px 16px;
-	}
-	.price-tag {
-		font-size: 16px;
-	}
+  .shared-private-btn {
+    width: auto !important;
+    padding: 8px 16px;
+  }
+  .price-tag {
+    font-size: 16px;
+  }
 }
 
 @media all and (max-width: 768px) {
-	.recommended-property-carousel {
-		display: block;
-	}
-	.recommended-property-cards {
-		display: none;
-	}
-	.buildings-cardview-type {
-		font-size: 24px;
-		margin-bottom: 16px;
-	}
+  .recommended-property-carousel {
+    display: block;
+  }
+  .recommended-property-cards {
+    display: none;
+  }
+  .buildings-cardview-type {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 }
 
 @media all and (max-width: 767px) {
-	.building-card-container:not(:first-child) {
-		margin-top: 32px;
-	}
-	.areaName {
-		font-size: 16px;
-		margin-bottom: 0%;
-	}
-	.distance {
-		font-size: 14px;
-		bottom: 0px;
-	}
+  .building-card-container:not(:first-child) {
+    margin-top: 32px;
+  }
+  .areaName {
+    font-size: 16px;
+    margin-bottom: 0%;
+  }
+  .distance {
+    font-size: 14px;
+    bottom: 0px;
+  }
 }
 @media all and (max-width: 992px) {
-	.price-tag {
-		display: block;
-		position: absolute;
-		font-size: 16px;
-		padding-bottom: 8px;
-		text-align: right;
-		bottom: 50px;
-	}
-	.areaName {
-		font-size: 16px;
-		margin-bottom: 0%;
-	}
-	.distance {
-		font-size: 14px;
-		bottom: 0px;
-	}
+  .price-tag {
+    display: block;
+    position: absolute;
+    font-size: 16px;
+    padding-bottom: 8px;
+    text-align: right;
+    bottom: 50px;
+  }
+  .areaName {
+    font-size: 16px;
+    margin-bottom: 0%;
+  }
+  .distance {
+    font-size: 14px;
+    bottom: 0px;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .areaName {
+    font-size: 14px;
+    margin-bottom: 0%;
+  }
+  .distance {
+    font-size: 12px;
+    bottom: 0px;
+  }
+}
+.card-body a,
+.card-body a:hover,
+.card-body a:active {
+  text-decoration: none;
 }
 
 @media all and (max-width: 420px) {
 	.areaName {
-		font-size: 16px;
+		font-size: 12px;
 		margin-bottom: 0%;
-	}
-	.distance {
-		font-size: 14px;
+	  }
+	  .distance {
+		font-size: 10px;
 		bottom: 0px;
-	}
-}
-.card-body a, .card-body a:hover, .card-body a:active {
-  text-decoration: none;
+	  }
+	
 }

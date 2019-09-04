@@ -5,7 +5,6 @@ import "./style.css";
 const GoogleStaticMap = props => {
   const { address, name } = props;
 
-
   return (
     <React.Fragment>
       <Row className="mapRow">
@@ -15,15 +14,11 @@ const GoogleStaticMap = props => {
             <h4>{address}</h4>
           </div>
         </Col>
-        <Col
-          md="6"
-          sm="12"
-          className="mapView "
-        >
+        <Col md="6" sm="12" className="mapView ">
           <iframe
             width="100%"
             frameBorder="0"
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyALm2_qqHb8Wy1q6lv-ytAJdutUx0JYSrU&q=Grexter ${name}`}
+            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCoWjs75Ave4auzfDU1gQK-mo2NYLX6SfU&q=Grexter ${name}`}
             scrolling="no"
             draggable="no"
           ></iframe>
