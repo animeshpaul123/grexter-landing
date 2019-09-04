@@ -205,7 +205,6 @@ class ScheduleVisit extends Component {
 					</FormGroup>
 				</form>
 				{err ? <div className="error-text">Please Fill in all the fields before proceeding</div> : null}
-				<div>{loader ? <div className="loader" /> : null}</div>
 				{toast ? (
 					<SuccessModal
 						isOpen={toast}

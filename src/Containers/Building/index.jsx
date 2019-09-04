@@ -67,7 +67,8 @@ class Building extends Component {
 			nearbyProperties = nearbyProperties.slice(1, 4);
 			this.setState({ buildingData, nearbyProperties, selectOptionsar, loader: false, pendingLoader: false });
 		} catch (err) {
-			console.log(err);
+			console.log(err.status);
+			this.setState({ pendingLoader: false });
 		}
 	};
 
