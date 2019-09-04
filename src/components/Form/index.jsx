@@ -178,7 +178,11 @@ class ScheduleVisit extends Component {
 							onChange={this.handelSelectChange}
 						>
 							{selectOptionsar.map((option) => {
-								return <option key={option.id}>{option.name}</option>;
+								return (
+									<option key={option.id} onClick={() => alert('you clicked building')}>
+										{option.name}
+									</option>
+								);
 							})}
 						</Input>
 					</FormGroup>
@@ -189,12 +193,11 @@ class ScheduleVisit extends Component {
 							disabled={disabled}
 							onClick={this.handleCheck}
 						>
-							{this.state.loader ? 'Sending...' : 'Submit'}
+							{loader ? 'Sending...' : 'Submit'}
 						</button>
 					</FormGroup>
 				</form>
 				{err ? <div className="error-text">Please Fill in all the fields before proceeding</div> : null}
-				<div>{loader ? <div className="loader" /> : null}</div>
 				{toast ? (
 					<SuccessModal
 						isOpen={toast}
