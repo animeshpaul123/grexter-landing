@@ -1,12 +1,16 @@
+.slider-container-gallery {
+  margin-top: 40px !important;
+  margin-bottom: 80px !important;
+}
 .slider-container-gallery .gallery-row {
-	display: block;
+  display: block;
 }
 .slider-container-gallery .f-arrow-btn.prev-arrow-btn {
-	left: 10px;
+  left: 10px;
 }
 .slider-container-gallery .f-arrow-btn.next-arrow-btn {
-	right: 10px;
+  right: 10px;
 }
 .slider-container-gallery {
-	margin: auto;
+  margin: auto;
 }

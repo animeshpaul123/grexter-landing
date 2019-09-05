@@ -4,9 +4,9 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import "./style.css";
 
 const Carrousel = props => {
-  const { name, areaName, coverImage, dis } = props;
+  const { name, areaName, coverImage, dis, onCardClick } = props;
   return (
-    <Card className="mr-3">
+    <Card className="mr-3" onClick={onCardClick}>
       <CardImg
         width="100%"
         src={
