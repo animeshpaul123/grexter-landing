@@ -200,7 +200,7 @@ class ScheduleVisit extends Component {
 							disabled={disabled}
 							onClick={this.handleCheck}
 						>
-							{this.state.loader ? 'Sending...' : 'Submit'}
+							{loader ? 'Sending...' : 'Submit'}
 						</button>
 					</FormGroup>
 				</form>
