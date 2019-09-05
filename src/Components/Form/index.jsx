@@ -127,8 +127,8 @@ class ScheduleVisit extends Component {
 	};
 
 	render() {
-		// prettier-ignore
-		const { toast, loader, err, name, contact_number,  validate, sent } = this.state;
+		// prettier-ignore---------
+		const { toast, loader, err, name, contact_number, validate, sent } = this.state;
 		const { bookVisitClicked, selectOptionsar, SelectHandler, pending } = this.props;
 		let disabledCls = '',
 			disabled = false;
