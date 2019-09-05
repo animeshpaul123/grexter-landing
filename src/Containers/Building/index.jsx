@@ -151,10 +151,15 @@ class Building extends Component {
         </LazyLoad>
 
         <Inclusive />
-        <Yellow2nut text="Gallery" />
-        <LazyLoad>
-          <GalleryNew images={images} />
-        </LazyLoad>
+
+        {images.length ? (
+          <Fragment>
+            <Yellow2nut text="Gallery" />
+            <LazyLoad>
+              <GalleryNew images={images} />
+            </LazyLoad>
+          </Fragment>
+        ) : null}
 
         <Yellow2nut text="Address and Maps  " />
         <GoogleStaticMap address={address} name={name} />
