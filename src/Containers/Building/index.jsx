@@ -16,7 +16,24 @@ import Yellow2nut from "../../Components/Yellow2nut";
 import "./style.css";
 import ErrorBoundary from "../ErrorBoundary";
 import GalleryNew from "../../Components/GalleryNew";
-
+const logProfiler = ({
+  ProfilerId,
+  Phase,
+  ActualTime,
+  StartTime,
+  CommitTime,
+  Interactions
+}) => {
+  console.log({
+    ProfilerId,
+    Phase,
+    ActualTime,
+    Basetime, //time taken by react
+    StartTime, //time at which render starts
+    CommitTime,
+    Interactions // this is gotten from the rapping API
+  });
+};
 class Building extends Component {
   state = {
     buildingData: {},
@@ -172,6 +189,7 @@ class Building extends Component {
         </LazyLoad>
 
         <Footer {...this.state.footer} />
+        <Profiler id="image-grid" onRender={this.logProfiler} />
       </Fragment>
     );
   }

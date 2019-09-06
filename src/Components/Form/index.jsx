@@ -129,7 +129,7 @@ class ScheduleVisit extends Component {
 	render() {
 		// prettier-ignore---------
 		const { toast, loader, err, name, contact_number, validate, sent } = this.state;
-		const { bookVisitClicked, selectOptionsar, SelectHandler, pending } = this.props;
+		const { bookVisitClicked, selectOptionsar} = this.props;
 		let disabledCls = '',
 			disabled = false;
 		console.log('trudbchdbhbds===', bookVisitClicked);
