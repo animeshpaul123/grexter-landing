@@ -31,8 +31,7 @@ class Building extends Component {
     bookVisitClicked: false,
     selectOptionsar: [],
     selectOption: "",
-    loader: true,
-    pendingLoader: false
+    loader: true
   };
 
   componentDidMount() {
@@ -42,11 +41,9 @@ class Building extends Component {
   }
 
   getBuildingData = async id => {
-    if (!this.state.pendingLoader) {
-      this.setState({
-        loader: true
-      });
-    }
+    this.setState({
+      loader: true
+    });
 
     try {
       const res = await fetch(
@@ -74,12 +71,10 @@ class Building extends Component {
         buildingData,
         nearbyProperties,
         selectOptionsar,
-        loader: false,
-        pendingLoader: false
+        loader: false
       });
     } catch (err) {
       console.log(err.status);
-      this.setState({ pendingLoader: false });
     }
   };
 
@@ -94,23 +89,12 @@ class Building extends Component {
     }, 810);
   };
 
-  onChangeSelectHandler = async name => {
-    this.setState({ pendingLoader: true });
-    const { selectOptionsar } = this.state;
-    const id = selectOptionsar.filter((each, i) => {
-      return each.name === name;
-    })[0].id;
-    console.log(name, id);
-    this.getBuildingData(id);
-  };
-
   render() {
     const {
       nearbyProperties,
       bookVisitClicked,
       selectOptionsar,
-      loader,
-      pendingLoader
+      loader
     } = this.state;
     const {
       address,
@@ -119,8 +103,6 @@ class Building extends Component {
       description,
       layouts = []
     } = this.state.buildingData;
-    console.log("nearByProperties==", nearbyProperties);
-    console.log("building data==", this.state.buildingData);
 
     return loader ? (
       <div className="loader" />
@@ -134,8 +116,6 @@ class Building extends Component {
               desc={description}
               bookVisitClicked={bookVisitClicked}
               selectOptionsar={selectOptionsar}
-              SelectHandler={this.onChangeSelectHandler}
-              pending={pendingLoader}
             />
           </ErrorBoundary>
         </Cover>
@@ -165,10 +145,7 @@ class Building extends Component {
         <GoogleStaticMap address={address} name={name} />
         <Yellow2nut text="Other Properties" />
         <LazyLoad>
-          <OtherProperties
-            nearby={nearbyProperties}
-            onCardClick={this.getBuildingData}
-          />
+          <OtherProperties nearby={nearbyProperties} />
         </LazyLoad>
 
         <Footer {...this.state.footer} />

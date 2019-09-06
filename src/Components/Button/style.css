@@ -10,8 +10,13 @@
   border-radius: 27.5px;
   border: 2px solid #f5d142;
   cursor: pointer;
+  transition: all 500ms;
 }
 
+.grex-round-button:hover {
+  background-color: #f5d142;
+  color: #fff;
+}
 @media all and (max-width: 992px) {
   .grex-round-button {
     width: 100%;
