@@ -103,8 +103,6 @@ class Building extends Component {
       description,
       layouts = []
     } = this.state.buildingData;
-    console.log("nearByProperties==", nearbyProperties);
-    console.log("building data==", this.state.buildingData);
 
     return loader ? (
       <div className="loader" />

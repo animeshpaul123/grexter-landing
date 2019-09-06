@@ -43,7 +43,6 @@ class OtherProperties extends Component {
       nextArrow: <this.NextArrow />,
       prevArrow: <this.PrevArrow />
     };
-    console.log(settings);
     const { nearby} = this.props;
     let nearByBuildings;
     if (nearby && nearby.length > 0) {
