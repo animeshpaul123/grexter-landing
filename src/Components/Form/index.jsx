@@ -118,6 +118,8 @@ class ScheduleVisit extends Component {
 			console.log(data);
 			this.setState({ loader: false, sent: data.status, toast: true }, () => {
 				if (this.state.sent === 'success') {
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({event: 'landing_page_form_submit',validation: 'Success'});
 					this.setState({ name: '', contact_number: '' });
 				}
 			});
