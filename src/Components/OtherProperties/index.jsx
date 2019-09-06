@@ -44,7 +44,7 @@ class OtherProperties extends Component {
       prevArrow: <this.PrevArrow />
     };
     console.log(settings);
-    const { nearby, onCardClick } = this.props;
+    const { nearby} = this.props;
     let nearByBuildings;
     if (nearby && nearby.length > 0) {
       nearByBuildings = nearby.map(building => {
@@ -63,7 +63,6 @@ class OtherProperties extends Component {
             areaName={areaName}
             coverImage={coverImage}
             dis={dis}
-            onCardClick={() => onCardClick(building.id)}
           />
         );
       });
