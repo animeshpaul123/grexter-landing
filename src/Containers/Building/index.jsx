@@ -88,7 +88,7 @@ class Building extends Component {
     let url = window.location.href;
 
     this.setState({ url, landmarkToShow: this.getAllUrlParams(url).landmark });
-    this.getBuildingData(this.getAllUrlParams(url).id);
+    this.getBuildingData(this.getAllUrlParams(url).id || 42);
   }
 
   getBuildingData = async id => {
@@ -154,7 +154,7 @@ class Building extends Component {
       name,
       description,
       landmarks,
-
+      location,
       area,
       layouts = []
     } = this.state.buildingData;
@@ -200,7 +200,7 @@ class Building extends Component {
         ) : null}
 
         <Yellow2nut text="Address and Maps  " />
-        <GoogleStaticMap address={address} name={name} />
+        <GoogleStaticMap address={address} name={name} location={location}/>
         <Yellow2nut text="Other Properties" />
         <LazyLoad>
           <OtherProperties nearby={nearbyProperties} />

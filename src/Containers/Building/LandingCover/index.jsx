@@ -13,8 +13,13 @@ const LandingCover = props => {
   } = props;
   let LandmarkName;
   LandmarkName =
-    landmarks[landmarkToShow > 2 || landmarkToShow === "" ? 0 : landmarkToShow]
-      .name;
+    landmarks[
+      landmarkToShow > 2 ||
+      landmarkToShow === "" ||
+      landmarkToShow === undefined
+        ? 0
+        : landmarkToShow
+    ].name;
 
   console.log(landmarks, landmarkToShow, LandmarkName);
 

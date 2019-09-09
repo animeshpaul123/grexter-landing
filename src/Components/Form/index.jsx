@@ -48,7 +48,6 @@ class ScheduleVisit extends Component {
     if (contact_number === "") {
       validate.phnumErr = true;
     }
-    debugger;
     this.setState(validate);
 
     if (validate.nameErr || validate.phnumErr) {
