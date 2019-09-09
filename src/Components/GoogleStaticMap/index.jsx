@@ -15,7 +15,7 @@ const GoogleStaticMap = props => {
           </div>
         </Col>
         <Col md="6" sm="12" className="mapView ">
-          {name === "Vega" ? (
+          {name === "Vega" || "Cosmos" ? (
             <iframe
               width="100%"
               frameBorder="0"

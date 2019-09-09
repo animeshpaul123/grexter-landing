@@ -27,20 +27,12 @@ class ScheduleVisit extends Component {
   handleCheck = event => {
     event.preventDefault();
 
-    const { name, contact_number, email } = this.state;
+    const { name, contact_number, email, emailTouched } = this.state;
     console.log(email);
 
     const { validate } = this.state;
-    // //email check while submiting to form
-    // if (/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email) && emailTouched) {
-    //   console.log("Touched");
 
-    //   validate.email = true;
-    // } else {
-    //   validate.email = false;
-    // }
-
-    // this.setState({ validate });
+    this.setState({ validate });
 
     if (name === "") {
       validate.nameErr = true;
@@ -50,7 +42,11 @@ class ScheduleVisit extends Component {
     }
     this.setState(validate);
 
-    if (validate.nameErr || validate.phnumErr) {
+    if (
+      validate.nameErr ||
+      validate.phnumErr ||
+      (emailTouched && validate.emailErr)
+    ) {
       this.setState({ err: true });
     } else {
       this.setState({ err: false }, event => {
@@ -107,7 +103,7 @@ class ScheduleVisit extends Component {
     let authKey =
       "ZW13dnl4bzd4dGF6MXlvaG9zeWIxZHk0N2dyMG9rYXEwOWlzb2N6ZTNxMndoMGYyZjI=";
     const { name, contact_number, email } = this.state;
-    console.log(buildingName);
+    console.log(this.state);
 
     try {
       const res = await fetch(
@@ -208,10 +204,10 @@ class ScheduleVisit extends Component {
           </FormGroup>
           <FormGroup>
             <label style={{ fontSize: "14px", fontWeight: "bold" }}>
-              Email :{" "}
+              Email{" "}
               <span style={{ fontSize: "10px", color: "grey" }}>
                 (optional)
-              </span>
+              </span>{" "}
               :
             </label>
             <Input
@@ -221,7 +217,7 @@ class ScheduleVisit extends Component {
               name="email"
               value={email}
               onChange={this.handelEmailChange}
-              invalid={validate.email}
+              invalid={validate.emailErr}
             />
             <FormFeedback invalid>
               Please enter a valid Email address

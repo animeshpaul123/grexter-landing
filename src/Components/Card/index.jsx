@@ -32,10 +32,4 @@ const RoomsCard = props => {
   );
 };
 
-RoomsCard.defaultProps = {
-  name: " ",
-  price: " ",
-  src: "https://d2lb8po6ulqbmf.cloudfront.net/newassets/comingsoon-carousel.jpg"
-};
-
 export default RoomsCard;
