@@ -1,62 +1,87 @@
 .icons-wrapper {
-  margin-top: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  /* width: 100%; */
-  margin-top: 51px;
+	margin-top: 20px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	/* width: 100%; */
+	margin-top: 51px;
+}
+.icons-wrapper-slick {
+	margin: 60px 0;
+}
+.icons-wrapper-slick img {
+	width: 40px;
+	height: 40px;
+}
+.icons-wrapper-slick .text {
+	font-size: 13px;
+	margin-top: 10px;
+}
+.icons-wrapper-slick .f-arrow-btn.next-arrow-btn,
+.icons-wrapper-slick .f-arrow-btn.prev-arrow-btn {
+	top: 17%;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .1), 0 1px 6px rgba(0, 0, 0, .28);
+	color: #000000bf;
+	width: 36px;
+	height: 36px;
+	font-size: 17px;
 }
 .icons-wrapper .icon {
-  -ms-flex-preferred-size: 10%;
-  flex-basis: 10%;
-  padding: 10px;
+	-ms-flex-preferred-size: 10%;
+	flex-basis: 10%;
+	padding: 10px;
 }
 .icons-wrapper .icon img {
-  width: 50px;
-  height: 50px;
-  display: block;
-  margin: 0 auto;
+	width: 50px;
+	height: 50px;
+	display: block;
+	margin: 0 auto;
 }
 .icons-wrapper .icon .text {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #292c74;
-  font-weight: 600;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 0.9rem;
+	color: #292c74;
+	font-weight: 600;
+}
+.icons-wrapper .icon {
+	-ms-flex-preferred-size: 50%;
+	flex-basis: 50%;
+}
+@media screen and (min-width: 600px) {
+	.icons-wrapper-slick .f-arrow-btn.next-arrow-btn,
+	.icons-wrapper-slick .f-arrow-btn.prev-arrow-btn {
+		top: 17%;
+		width: 36px;
+		height: 36px;
+		font-size: 17px;
+	}
 }
 @media screen and (min-width: 768px) {
-  .icons-wrapper {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    font-family: MONTSERRAT-REGULAR_0;
-  }
-  .icons-wrapper .icon {
-    -ms-flex-preferred-size: 40%;
-    flex-basis: 40%;
-  }
+	.icons-wrapper {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		font-family: MONTSERRAT-REGULAR_0;
+	}
 }
 @media screen and (min-width: 991px) {
-  .icons-wrapper {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-  .icons-wrapper .icon {
-    -ms-flex-preferred-size: 10%;
-    flex-basis: 10%;
-  }
-  .icons-wrapper .icon .text {
-    font-size: 1rem;
-  }
+	.icons-wrapper {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.icons-wrapper .icon {
+		-ms-flex-preferred-size: 10%;
+		flex-basis: 10%;
+	}
+	.icons-wrapper .icon .text {
+		font-size: 1rem;
+	}
 }
