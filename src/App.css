@@ -76,9 +76,16 @@ footer .logo-wrapper .footer-content .visit-us a:active {
 	position: relative;
 	top: 1px;
 }
+
 footer .info-wrapper {
 	padding-bottom: 20px;
 }
+@media screen and (max-width: 767px) {
+	footer .info-wrapper {
+		padding-bottom: 60px;
+	}
+}
+
 footer .info-wrapper .contact {
 	font-family: MONTSERRAT-REGULAR_0;
 	text-align: center;

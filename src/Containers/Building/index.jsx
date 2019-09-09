@@ -32,7 +32,7 @@ class Building extends Component {
 		selectOptionsar: [],
 		selectOption: '',
 		loader: true,
-		id: 42
+		showFixedBtn: false
 	};
 
 	componentDidMount() {
@@ -75,6 +75,9 @@ class Building extends Component {
 				selectOptionsar,
 				loader: false
 			});
+			if (nearbyProperties.length) {
+				window.setTimeout(() => this.setState({ showFixedBtn: true }), 3000);
+			}
 		} catch (err) {
 			console.log(err.status);
 		}
@@ -92,7 +95,7 @@ class Building extends Component {
 	};
 
 	render() {
-		const { nearbyProperties, bookVisitClicked, selectOptionsar, loader } = this.state;
+		const { nearbyProperties, bookVisitClicked, selectOptionsar, loader, showFixedBtn } = this.state;
 		const { address, images, name, description, layouts = [] } = this.state.buildingData;
 
 		return loader ? (
@@ -107,6 +110,8 @@ class Building extends Component {
 							desc={description}
 							bookVisitClicked={bookVisitClicked}
 							selectOptionsar={selectOptionsar}
+							bookVisitClickHandler={this.bookVisitClickHandler}
+							showFixedBtn={showFixedBtn}
 						/>
 					</ErrorBoundary>
 				</Cover>
@@ -135,7 +140,6 @@ class Building extends Component {
 				<LazyLoad>
 					<OtherProperties nearby={nearbyProperties} />
 				</LazyLoad>
-
 				<Footer {...this.state.footer} />
 			</Fragment>
 		);

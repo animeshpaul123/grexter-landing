@@ -59,3 +59,41 @@
 		line-height: 25px;
 	}
 }
+.fixed-button-container {
+	padding: 10px 20px;
+	background: #fff;
+	position: fixed;
+	bottom: -2px;
+	width: 100%;
+	margin: 0 -15px;
+	z-index: 1000;
+}
+.fixed-anim {
+	animation: goUp 0.6s ease-in-out;
+	animation-iteration-count: 1;
+}
+.fixed-button-container .fixed-button {
+	border: 2px solid #292c74;
+	border-radius: 7px;
+	text-decoration: none;
+}
+.fixed-button-container a,
+.fixed-button-container a:hover,
+.fixed-button-container a:active {
+	text-decoration: none;
+	color: #292c74;
+}
+@keyframes goUp {
+	0% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+.fixed-button-container .fixed-button:hover,
+.fixed-button-container .fixed-button:active {
+	background: initial;
+	text-decoration: none;
+	color: #292c74;
+}
