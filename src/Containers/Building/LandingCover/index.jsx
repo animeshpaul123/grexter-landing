@@ -2,6 +2,7 @@ import React from "react";
 import Form from "../../../Components/Form";
 import { Row, Col } from "reactstrap";
 import "./style.css";
+import Button from "../../../Components/Button";
 
 const LandingCover = props => {
   const {
@@ -9,7 +10,9 @@ const LandingCover = props => {
     bookVisitClicked,
     area,
     landmarks = {},
-    landmarkToShow
+    landmarkToShow,
+    bookVisitClickHandler,
+    showFixedBtn
   } = props;
   let LandmarkName;
   debugger;
@@ -21,6 +24,7 @@ const LandingCover = props => {
         ? 0
         : landmarkToShow
     ].name;
+  const styleFixed = showFixedBtn ? "fixed-anim" : null;
 
   console.log(landmarks, landmarkToShow, LandmarkName);
 
@@ -62,6 +66,13 @@ const LandingCover = props => {
           </div>
         </Col>
       </Row>
+      {showFixedBtn && (
+        <div className={"fixed-button-container d-md-none " + styleFixed}>
+          <Button className="fixed-button" onClick={bookVisitClickHandler}>
+            Contact Us
+          </Button>
+        </div>
+      )}
     </React.Fragment>
   );
 };
