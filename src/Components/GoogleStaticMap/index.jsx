@@ -3,7 +3,7 @@ import { Row, Col } from "reactstrap";
 import "./style.css";
 
 const GoogleStaticMap = props => {
-  const { address, name, location } = props;
+  const { address, name, location = {} } = props;
 
   return (
     <React.Fragment>

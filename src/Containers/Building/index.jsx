@@ -19,8 +19,10 @@ import GalleryNew from "../../Components/GalleryNew";
 
 class Building extends Component {
   state = {
+    url: "",
     buildingData: {},
     nearbyProperties: {},
+    landmarkToShow: 0,
     footer: {
       logoLink: "https://grexter.in",
       phone: "8880968000",
@@ -29,16 +31,72 @@ class Building extends Component {
       linkedin: "https://www.linkedin.com/company/grexter"
     },
     bookVisitClicked: false,
-    selectOptionsar: [],
-    selectOption: "",
-    loader: true,
-    showFixedBtn: false
+    loader: true
   };
 
+  getAllUrlParams(url) {
+    let queryString = url ? url.split("?")[1] : window.location.search.slice(1);
+
+    let obj = {};
+
+    if (queryString) {
+      queryString = queryString.split("#")[0];
+
+      let arr = queryString.split("&");
+
+      for (var i = 0; i < arr.length; i++) {
+        let a = arr[i].split("=");
+
+        let paramName = a[0];
+        let paramValue = typeof a[1] === "undefined" ? true : a[1];
+
+        paramName = paramName.toLowerCase();
+        if (typeof paramValue === "string")
+          paramValue = paramValue.toLowerCase();
+
+        if (paramName.match(/\[(\d+)?\]$/)) {
+          let key = paramName.replace(/\[(\d+)?\]/, "");
+          if (!obj[key]) obj[key] = [];
+
+          if (paramName.match(/\[\d+\]$/)) {
+            let index = /\[(\d+)\]/.exec(paramName)[1];
+            obj[key][index] = paramValue;
+          } else {
+            obj[key].push(paramValue);
+          }
+        } else {
+          if (!obj[paramName]) {
+            obj[paramName] = paramValue;
+          } else if (obj[paramName] && typeof obj[paramName] === "string") {
+            obj[paramName] = [obj[paramName]];
+            obj[paramName].push(paramValue);
+          } else {
+            obj[paramName].push(paramValue);
+          }
+        }
+      }
+    }
+
+    return obj;
+  }
   componentDidMount() {
-    let params = window.location.search;
-    const id = params.split("=")[1] || 25;
-    this.getBuildingData(id);
+    // let params = window.location.search;
+    // console.log(window.location.href);
+
+    // const id = params.split("=")[1] || 25;
+
+    let url = window.location.href;
+
+    this.setState({ url, landmarkToShow: this.getAllUrlParams(url).landmark });
+    this.getBuildingData(this.getAllUrlParams(url).id || 42);
+
+    if (this.state.nearbyProperties.length > 0) {
+      setTimeout(() => {
+        this.setState({
+          showFixedBtn: true
+        });
+      }, 3000);
+    }
   }
 
   getBuildingData = async id => {
@@ -58,20 +116,11 @@ class Building extends Component {
 
       let nearbyProperties = await res1.json();
 
-      const selectOptionsar = [];
-
-      nearbyProperties.forEach(data => {
-        selectOptionsar.push({
-          name: data.name,
-          id: data.id
-        });
-      });
-
       nearbyProperties = nearbyProperties.slice(1, 4);
       this.setState({
         buildingData,
         nearbyProperties,
-        selectOptionsar,
+        // selectOptionsar,
         loader: false
       });
       if (nearbyProperties.length) {
@@ -97,7 +146,8 @@ class Building extends Component {
     const {
       nearbyProperties,
       bookVisitClicked,
-      selectOptionsar,
+      // selectOptionsar,
+      landmarkToShow,
       loader,
       showFixedBtn
     } = this.state;
@@ -106,6 +156,9 @@ class Building extends Component {
       images,
       name,
       description,
+      landmarks,
+      location,
+      area,
       layouts = []
     } = this.state.buildingData;
 
@@ -117,12 +170,15 @@ class Building extends Component {
         <Cover images={images}>
           <ErrorBoundary>
             <LandingCover
+              area={area}
               name={name}
               desc={description}
               bookVisitClicked={bookVisitClicked}
-              selectOptionsar={selectOptionsar}
-              bookVisitClickHandler={this.bookVisitClickHandler}
+              landmarks={landmarks}
+              landmarkToShow={landmarkToShow}
               showFixedBtn={showFixedBtn}
+              bookVisitClickHandler={this.bookVisitClickHandler}
+              // selectOptionsar={selectOptionsar}
             />
           </ErrorBoundary>
         </Cover>
@@ -149,11 +205,12 @@ class Building extends Component {
         ) : null}
 
         <Yellow2nut text="Address and Maps  " />
-        <GoogleStaticMap address={address} name={name} />
+        <GoogleStaticMap address={address} name={name} location={location} />
         <Yellow2nut text="Other Properties" />
         <LazyLoad>
           <OtherProperties nearby={nearbyProperties} />
         </LazyLoad>
+
         <Footer {...this.state.footer} />
       </Fragment>
     );

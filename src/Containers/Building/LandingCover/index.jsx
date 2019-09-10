@@ -15,7 +15,6 @@ const LandingCover = props => {
     showFixedBtn
   } = props;
   let LandmarkName;
-  debugger;
   LandmarkName =
     landmarks[
       landmarkToShow > 2 ||
@@ -35,14 +34,16 @@ const LandingCover = props => {
           <div className="centerText d-md-flex h-100 pt-4 flex-column text-left">
             <h1>{name}</h1>
             <h4>
-              Spacious rooms for rent in {area.display_name}, near{" "}
-              {LandmarkName}. Fully furnished spaces with state of the art
-              infrastructure and amenities.
-            </h4>
-            <h4>
-              Ready to move in setup with new age coliving environment.
-              <br />
-              <br /> Let me know your thoughts on the same.
+              Spacious rooms for rent in{" "}
+              <span style={{ color: "#f5c513", fontWeight: "500" }}>
+                {area.display_name}
+              </span>
+              , near {LandmarkName}. <br /> <br />
+              <span style={{ color: "#f5c513", fontWeight: "500" }}>
+                Fully furnished spaces
+              </span>{" "}
+              with state of the art infrastructure and amenities. Ready to move
+              in setup with new age coliving environment.
             </h4>
             {name ? (
               ""
@@ -69,7 +70,7 @@ const LandingCover = props => {
       {showFixedBtn && (
         <div className={"fixed-button-container d-md-none " + styleFixed}>
           <Button className="fixed-button" onClick={bookVisitClickHandler}>
-            Contact Us
+            Book Now
           </Button>
         </div>
       )}
