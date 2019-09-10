@@ -46,6 +46,7 @@ class Building extends Component {
 
       for (var i = 0; i < arr.length; i++) {
         let a = arr[i].split("=");
+        
 
         let paramName = a[0];
         let paramValue = typeof a[1] === "undefined" ? true : a[1];
@@ -76,7 +77,6 @@ class Building extends Component {
         }
       }
     }
-
     return obj;
   }
   componentDidMount() {
@@ -178,7 +178,6 @@ class Building extends Component {
               landmarkToShow={landmarkToShow}
               showFixedBtn={showFixedBtn}
               bookVisitClickHandler={this.bookVisitClickHandler}
-              // selectOptionsar={selectOptionsar}
             />
           </ErrorBoundary>
         </Cover>
@@ -204,7 +203,7 @@ class Building extends Component {
           </Fragment>
         ) : null}
 
-        <Yellow2nut text="Address and Maps  " />
+        <Yellow2nut text="Address and Maps" />
         <GoogleStaticMap address={address} name={name} location={location} />
         <Yellow2nut text="Other Properties" />
         <LazyLoad>

@@ -169,7 +169,7 @@ class ScheduleVisit extends Component {
     }
     return (
       <div className="form">
-        <p className="formHeader">Let us Know You..!</p>
+        <p className="formHeader">Book A Visit</p>
         <form>
           <FormGroup>
             <label style={{ fontSize: "14px", fontWeight: "bold" }}>
@@ -186,9 +186,7 @@ class ScheduleVisit extends Component {
               onChange={this.handleNameChange}
             />
             <FormFeedback invalid>
-              {contact_number
-                ? "Please enter only Letters"
-                : "Please enter Your Name"}
+              {name ? "Please enter only Letters" : "Please enter Your Name"}
             </FormFeedback>
           </FormGroup>
           <FormGroup>
