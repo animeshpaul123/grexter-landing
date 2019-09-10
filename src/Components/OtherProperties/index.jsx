@@ -43,7 +43,7 @@ class OtherProperties extends Component {
       nextArrow: <this.NextArrow />,
       prevArrow: <this.PrevArrow />
     };
-    const { nearby} = this.props;
+    const { nearby } = this.props;
     let nearByBuildings;
     if (nearby && nearby.length > 0) {
       nearByBuildings = nearby.map(building => {
@@ -57,6 +57,7 @@ class OtherProperties extends Component {
         const dis = building.distance.toFixed(2);
         return (
           <Carrousel
+            id={building.id}
             key={building.name}
             name={building.name}
             areaName={areaName}

@@ -11,38 +11,42 @@ class ScheduleVisit extends Component {
   state = {
     contact_number: "",
     name: "",
-    dropdown: "",
+    email: "",
     toast: false,
     sent: false,
     loader: false,
     err: false,
+    emailTouched: false,
     validate: {}
   };
 
-  handleChange = evt => {
-    this.setState({ [evt.target.name]: evt.target.value, err: false });
-  };
+  // handleChange = evt => {
+  //   this.setState({ [evt.target.name]: evt.target.value, err: false });
+  // };
 
   handleCheck = event => {
     event.preventDefault();
-    const { selectOptionsar } = this.props;
 
-    const { name, contact_number, dropdown } = this.state;
-    if (dropdown === "") {
-      this.setState({ dropdown: selectOptionsar[0].name });
-    }
+    const { name, contact_number, email, emailTouched } = this.state;
+    console.log(email);
 
     const { validate } = this.state;
+
+    this.setState({ validate });
+
     if (name === "") {
       validate.nameErr = true;
     }
     if (contact_number === "") {
       validate.phnumErr = true;
     }
-
     this.setState(validate);
 
-    if (validate.nameErr || validate.phnumErr) {
+    if (
+      validate.nameErr ||
+      validate.phnumErr ||
+      (emailTouched && validate.emailErr)
+    ) {
       this.setState({ err: true });
     } else {
       this.setState({ err: false }, event => {
@@ -52,26 +56,20 @@ class ScheduleVisit extends Component {
   };
 
   handleNameChange = async evt => {
-    await this.setState({ [evt.target.name]: evt.target.value, err: false });
-
+    await this.setState({ name: evt.target.value, err: false });
     const { name } = this.state;
-
     const { validate } = this.state;
-
     if (/^[A-z ]+$/.test(name)) {
       validate.nameErr = false;
     } else {
       validate.nameErr = true;
     }
-
     this.setState({ validate });
   };
 
   handelPhnumChange = async evt => {
-    await this.setState({ [evt.target.name]: evt.target.value, err: false });
-
+    await this.setState({ contact_number: evt.target.value, err: false });
     const { contact_number } = this.state;
-
     const { validate } = this.state;
 
     if (/^\d{10}$/.test(contact_number)) {
@@ -81,14 +79,34 @@ class ScheduleVisit extends Component {
     }
     this.setState({ validate });
   };
-  handelSelectChange = async evt => {
-    await this.setState({ [evt.target.name]: evt.target.value, err: false });
+
+  handelEmailChange = async evt => {
+    await this.setState({
+      email: evt.target.value,
+      err: false,
+      emailTouched: true
+    });
+    const { email } = this.state;
+    const { validate } = this.state;
+
+    if (/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email)) {
+      validate.emailErr = false;
+    } else {
+      validate.emailErr = true;
+    }
+    if (email === "") {
+      validate.emailErr = false;
+    }
+    this.setState({ validate }, () => console.log(this.state));
   };
+
   handleSubmit = async e => {
-    this.setState({ loader: true }, () => {});
+    const { name: buildingName } = this.props;
+    this.setState({ loader: true });
     let authKey =
       "ZW13dnl4bzd4dGF6MXlvaG9zeWIxZHk0N2dyMG9rYXEwOWlzb2N6ZTNxMndoMGYyZjI=";
-    const { name, contact_number, dropdown } = this.state;
+    const { name, contact_number, email } = this.state;
+    console.log(this.state);
 
     try {
       const res = await fetch(
@@ -103,9 +121,9 @@ class ScheduleVisit extends Component {
             {
               customer_name: name,
               phone: contact_number,
-              email_id: "",
+              email_id: email,
               campaign_name: "website",
-              secSource: dropdown
+              secSource: buildingName
             }
           ])
         }
@@ -119,7 +137,7 @@ class ScheduleVisit extends Component {
             event: "landing_page_form_submit",
             validation: "Success"
           });
-          this.setState({ name: "", contact_number: "" });
+          this.setState({ name: "", contact_number: "", email: "" });
         }
       });
     } catch (error) {
@@ -128,16 +146,17 @@ class ScheduleVisit extends Component {
   };
 
   render() {
-    // prettier-ignore---------
     const {
       toast,
       loader,
       err,
       name,
       contact_number,
+      email,
       validate,
       sent
     } = this.state;
+
     const { bookVisitClicked, selectOptionsar } = this.props;
     let disabledCls = "",
       disabled = false;
@@ -159,14 +178,18 @@ class ScheduleVisit extends Component {
             <Input
               id="name"
               type="text"
-              placeholder="Name"
+              placeholder="Name*"
               className="input-text"
               invalid={validate.nameErr}
               name="name"
               value={name}
               onChange={this.handleNameChange}
             />
-            <FormFeedback invalid>Please enter a valid name</FormFeedback>
+            <FormFeedback invalid>
+              {contact_number
+                ? "Please enter only Letters"
+                : "Please enter Your Name"}
+            </FormFeedback>
           </FormGroup>
           <FormGroup>
             <label style={{ fontSize: "14px", fontWeight: "bold" }}>
@@ -175,7 +198,7 @@ class ScheduleVisit extends Component {
             <Input
               maxLength="10"
               type="text"
-              placeholder="Phone Number"
+              placeholder="Phone Number*"
               className="input-text"
               name="contact_number"
               value={contact_number}
@@ -183,25 +206,31 @@ class ScheduleVisit extends Component {
               invalid={validate.phnumErr}
             />
             <FormFeedback invalid>
-              Please enter a valid phone number
+              {contact_number
+                ? "Please enter a valid phone number"
+                : "Please enter Phone Number"}
             </FormFeedback>
           </FormGroup>
           <FormGroup>
             <label style={{ fontSize: "14px", fontWeight: "bold" }}>
-              Buildings :
+              Email{" "}
+              <span style={{ fontSize: "10px", color: "grey" }}>
+                (optional)
+              </span>{" "}
+              :
             </label>
             <Input
-              maxLength="10"
-              type="select"
-              placeholder="Phone Number"
+              type="email"
+              placeholder="Your Email"
               className="input-text"
-              name="dropdown"
-              onChange={this.handelSelectChange}
-            >
-              {selectOptionsar.map(option => {
-                return <option key={option.id}>{option.name}</option>;
-              })}
-            </Input>
+              name="email"
+              value={email}
+              onChange={this.handelEmailChange}
+              invalid={validate.emailErr}
+            />
+            <FormFeedback invalid>
+              Please enter a valid Email address
+            </FormFeedback>
           </FormGroup>
           <FormGroup>
             <button
@@ -215,9 +244,7 @@ class ScheduleVisit extends Component {
           </FormGroup>
         </form>
         {err ? (
-          <div className="error-text">
-            Please Fill in all the fields before proceeding
-          </div>
+          <div className="error-text">Name* and Phone Number* is required</div>
         ) : null}
         {toast ? (
           <SuccessModal

@@ -1,6 +1,7 @@
 .slider-container-gallery {
   margin-top: 40px !important;
   margin-bottom: 80px !important;
+  width: 100% !important;
 }
 .slider-container-gallery .gallery-row {
   display: block;
