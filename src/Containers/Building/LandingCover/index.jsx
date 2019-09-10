@@ -12,6 +12,7 @@ const LandingCover = props => {
     landmarkToShow
   } = props;
   let LandmarkName;
+  debugger;
   LandmarkName =
     landmarks[
       landmarkToShow > 2 ||

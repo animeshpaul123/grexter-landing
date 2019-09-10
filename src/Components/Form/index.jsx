@@ -178,7 +178,7 @@ class ScheduleVisit extends Component {
             <Input
               id="name"
               type="text"
-              placeholder="Name"
+              placeholder="Name*"
               className="input-text"
               invalid={validate.nameErr}
               name="name"
@@ -198,7 +198,7 @@ class ScheduleVisit extends Component {
             <Input
               maxLength="10"
               type="text"
-              placeholder="Phone Number"
+              placeholder="Phone Number*"
               className="input-text"
               name="contact_number"
               value={contact_number}
