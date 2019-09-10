@@ -4,9 +4,14 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import "./style.css";
 
 const Carrousel = props => {
-  const { name, areaName, coverImage, dis, onCardClick } = props;
+  const { name, areaName, coverImage, dis, id } = props;
   return (
-    <Card className="mr-3" onClick={onCardClick}>
+    <Card
+      className="mr-3"
+      onClick={() => {
+        window.location.href = `https://grexter.in/building?id=${id}`;
+      }}
+    >
       <CardImg
         width="100%"
         src={

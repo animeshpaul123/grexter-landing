@@ -94,6 +94,9 @@ class ScheduleVisit extends Component {
     } else {
       validate.emailErr = true;
     }
+    if (email === "") {
+      validate.emailErr = false;
+    }
     this.setState({ validate }, () => console.log(this.state));
   };
 
@@ -182,7 +185,11 @@ class ScheduleVisit extends Component {
               value={name}
               onChange={this.handleNameChange}
             />
-            <FormFeedback invalid>Please enter a valid name</FormFeedback>
+            <FormFeedback invalid>
+              {contact_number
+                ? "Please enter only Letters"
+                : "Please enter Your Name"}
+            </FormFeedback>
           </FormGroup>
           <FormGroup>
             <label style={{ fontSize: "14px", fontWeight: "bold" }}>
@@ -199,7 +206,9 @@ class ScheduleVisit extends Component {
               invalid={validate.phnumErr}
             />
             <FormFeedback invalid>
-              Please enter a valid phone number
+              {contact_number
+                ? "Please enter a valid phone number"
+                : "Please enter Phone Number"}
             </FormFeedback>
           </FormGroup>
           <FormGroup>
